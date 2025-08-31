@@ -49,29 +49,43 @@ const HeroSection: React.FC = () => {
     }
   ];
 
+  // Optimized particle positions for better visual balance
+  const particlePositions = [
+    { x: 20, y: 15, delay: 0, duration: 8 },
+    { x: 80, y: 25, delay: 1, duration: 9 },
+    { x: 15, y: 70, delay: 2, duration: 7 },
+    { x: 85, y: 80, delay: 1.5, duration: 8.5 },
+    { x: 50, y: 10, delay: 0.5, duration: 9.5 },
+    { x: 10, y: 45, delay: 2.5, duration: 8 },
+    { x: 90, y: 55, delay: 1, duration: 7.5 },
+    { x: 60, y: 90, delay: 0.8, duration: 9 }
+  ];
+
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--neuro-bg-primary)] to-[var(--neuro-bg-secondary)]">
-        {/* Optimized Particle Background */}
-        {[...Array(12)].map((_, i) => (
+        {/* Optimized Background Particles */}
+        {particlePositions.map((particle, i) => (
           <motion.div
             key={i}
             animate={{
-              y: [0, -30, 0],
-              x: [0, 15, 0],
-              opacity: [0.2, 0.5, 0.2],
+              y: [0, -25, 0],
+              x: [0, 10, 0],
+              opacity: [0.3, 0.6, 0.3],
+              scale: [0.8, 1.2, 0.8],
             }}
             transition={{
-              duration: 6 + i * 0.5,
+              duration: particle.duration,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: i * 0.3,
+              delay: particle.delay,
             }}
-            className="absolute neuro-card w-3 h-3 rounded-full opacity-20"
+            className="absolute neuro-card w-2 h-2 rounded-full opacity-30"
             style={{
-              left: `${10 + (i * 8)}%`,
-              top: `${20 + Math.random() * 60}%`,
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+              background: 'linear-gradient(45deg, var(--neuro-accent), var(--neuro-accent-light))'
             }}
           />
         ))}
@@ -88,9 +102,14 @@ const HeroSection: React.FC = () => {
             className="text-center lg:text-left order-2 lg:order-1"
           >
             <motion.div variants={staggerItem} className="mb-6">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[var(--neuro-text-primary)] mb-4">
+              <motion.h1 
+                className="text-4xl md:text-6xl lg:text-7xl font-bold text-[var(--neuro-text-primary)] mb-4"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
                 Tanmay Patil
-              </h1>
+              </motion.h1>
             </motion.div>
 
             <motion.div variants={staggerItem} className="mb-6">
@@ -108,7 +127,13 @@ const HeroSection: React.FC = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={staggerItem} className="mb-8">
+            <motion.div 
+              variants={staggerItem} 
+              className="mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               <p className="text-base md:text-lg text-[var(--neuro-text-secondary)] max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                 B.E. in Artificial Intelligence & Data Science (CGPA 8.8) | Building intelligent automation solutions, 
                 mobile apps, and AI-powered platforms. Currently interning at CodeWithHarry.
@@ -116,10 +141,26 @@ const HeroSection: React.FC = () => {
             </motion.div>
 
             {/* Contact Info */}
-            <motion.div variants={staggerItem} className="mb-6">
+            <motion.div 
+              variants={staggerItem} 
+              className="mb-6"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
               <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-[var(--neuro-text-secondary)]">
-                <span>📧 tanmaypatil5110@gmail.com</span>
-                <span>📱 +91 9876543210</span>
+                <motion.span 
+                  whileHover={{ scale: 1.05, color: 'var(--neuro-accent)' }}
+                  className="transition-colors cursor-pointer"
+                >
+                  📧 tanmaypatil5110@gmail.com
+                </motion.span>
+                <motion.span 
+                  whileHover={{ scale: 1.05, color: 'var(--neuro-accent)' }}
+                  className="transition-colors cursor-pointer"
+                >
+                  📱 +91 9876543210
+                </motion.span>
               </div>
             </motion.div>
 
@@ -134,9 +175,13 @@ const HeroSection: React.FC = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.8 + index * 0.1 }}
                       whileHover={{ 
-                        scale: 1.1, 
-                        y: -3,
+                        scale: 1.15, 
+                        y: -5,
+                        boxShadow: `0 10px 25px ${social.color}40`
                       }}
                       whileTap={{ scale: 0.95 }}
                       className="neuro-button p-3 hover:glow-effect transition-all duration-300"
@@ -148,9 +193,15 @@ const HeroSection: React.FC = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={staggerItem} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <motion.div 
+              variants={staggerItem} 
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1 }}
+            >
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, boxShadow: '0 15px 30px rgba(102, 126, 234, 0.4)' }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
                 className="neuro-button px-6 py-3 text-base font-medium text-[var(--neuro-text-primary)] glow-effect"
@@ -179,110 +230,158 @@ const HeroSection: React.FC = () => {
             <div className="relative">
               {/* Main Profile Photo */}
               <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
                 className="relative z-10"
               >
                 <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 neuro-card rounded-full overflow-hidden glow-effect">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                    src="/assets/tanmay-photo.jpeg"
                     alt="Tanmay Patil"
                     className="w-full h-full object-cover"
                   />
                 </div>
               </motion.div>
               
-              {/* Optimized Particle Halo Effect */}
-              {[...Array(8)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  animate={{
-                    rotate: [0, 360],
-                    scale: [0.8, 1.2, 0.8],
-                  }}
-                  transition={{
-                    duration: 4 + i * 0.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: i * 0.5,
-                  }}
-                  className="absolute w-3 h-3 bg-gradient-to-r from-[var(--neuro-accent)] to-[var(--neuro-accent-light)] rounded-full opacity-60"
-                  style={{
-                    top: '50%',
-                    left: '50%',
-                    transformOrigin: `${120 + i * 15}px 0px`,
-                  }}
-                />
-              ))}
+              {/* Optimized Orbital Particle System */}
+              {[...Array(6)].map((_, i) => {
+                const angle = (i * 60) * (Math.PI / 180); // 60 degrees apart
+                const radius = 140 + (i % 2) * 20; // Alternating radii for visual interest
+                
+                return (
+                  <motion.div
+                    key={i}
+                    animate={{
+                      rotate: [0, 360],
+                    }}
+                    transition={{
+                      duration: 12 + i * 2,
+                      repeat: Infinity,
+                      ease: "linear",
+                      delay: i * 0.5,
+                    }}
+                    className="absolute top-1/2 left-1/2"
+                    style={{
+                      transformOrigin: `${radius}px 0px`,
+                      transform: `translate(-50%, -50%) rotate(${angle}rad)`,
+                    }}
+                  >
+                    <motion.div
+                      animate={{
+                        scale: [0.8, 1.3, 0.8],
+                        opacity: [0.4, 0.8, 0.4],
+                      }}
+                      transition={{
+                        duration: 3 + i * 0.3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: i * 0.2,
+                      }}
+                      className="w-3 h-3 rounded-full"
+                      style={{
+                        background: `linear-gradient(45deg, var(--neuro-accent), var(--neuro-accent-light))`,
+                        boxShadow: `0 0 15px var(--neuro-accent)40`,
+                      }}
+                    />
+                  </motion.div>
+                );
+              })}
 
-              {/* Floating Tech Icons */}
+              {/* Floating Tech Labels with Better Positioning */}
               <motion.div
                 animate={{
-                  y: [0, -20, 0],
-                  rotate: [0, 5, 0],
+                  y: [0, -15, 0],
+                  rotate: [0, 3, 0],
                 }}
                 transition={{
-                  duration: 3,
+                  duration: 4,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute -top-4 -right-4 neuro-button p-3 text-xs font-semibold gradient-text"
+                className="absolute -top-6 -right-6 neuro-button p-3 text-sm font-semibold gradient-text backdrop-blur-sm"
               >
                 AI/ML
               </motion.div>
 
               <motion.div
                 animate={{
-                  y: [0, 15, 0],
-                  rotate: [0, -5, 0],
+                  y: [0, 12, 0],
+                  rotate: [0, -3, 0],
                 }}
                 transition={{
-                  duration: 4,
+                  duration: 5,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  delay: 1,
+                  delay: 1.5,
                 }}
-                className="absolute -bottom-4 -left-4 neuro-button p-3 text-xs font-semibold gradient-text"
+                className="absolute -bottom-6 -left-6 neuro-button p-3 text-sm font-semibold gradient-text backdrop-blur-sm"
               >
                 Flutter
               </motion.div>
 
               <motion.div
                 animate={{
-                  y: [0, -10, 0],
-                  rotate: [0, 3, 0],
+                  y: [0, -8, 0],
+                  rotate: [0, 2, 0],
                 }}
                 transition={{
-                  duration: 5,
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 3,
+                }}
+                className="absolute top-1/2 -left-12 neuro-button p-3 text-sm font-semibold gradient-text backdrop-blur-sm"
+              >
+                Python
+              </motion.div>
+
+              <motion.div
+                animate={{
+                  y: [0, 10, 0],
+                  rotate: [0, -2, 0],
+                }}
+                transition={{
+                  duration: 4.5,
                   repeat: Infinity,
                   ease: "easeInOut",
                   delay: 2,
                 }}
-                className="absolute top-1/2 -left-8 neuro-button p-3 text-xs font-semibold gradient-text"
+                className="absolute top-1/2 -right-12 neuro-button p-3 text-sm font-semibold gradient-text backdrop-blur-sm"
               >
-                Python
+                Data Science
               </motion.div>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Enhanced Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 3, duration: 0.6 }}
+        transition={{ delay: 2, duration: 0.6 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <motion.button
           onClick={scrollToAbout}
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="neuro-button p-3 rounded-full"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="neuro-button p-4 rounded-full glow-effect"
           aria-label="Scroll to about section"
         >
-          <ChevronDown className="w-5 h-5 text-[var(--neuro-text-primary)]" />
+          <ChevronDown className="w-6 h-6 text-[var(--neuro-text-primary)]" />
         </motion.button>
+        <motion.p 
+          className="text-xs text-[var(--neuro-text-secondary)] mt-2 text-center"
+          animate={{ opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          Scroll Down
+        </motion.p>
       </motion.div>
     </section>
   );
