@@ -30,6 +30,7 @@ const Navigation: React.FC = () => {
     { label: 'Home', id: 'hero' },
     { label: 'About', id: 'about' },
     { label: 'Projects', id: 'projects' },
+    { label: 'Experience', id: 'experience' },
     { label: 'Contact', id: 'contact' },
   ];
 
@@ -56,7 +57,7 @@ const Navigation: React.FC = () => {
               className="text-xl font-bold gradient-text cursor-pointer"
               onClick={() => scrollToSection('hero')}
             >
-              Alex Chen
+              Tanmay Patil
             </motion.div>
 
             {/* Desktop Navigation */}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Download } from 'lucide-react';
 import { staggerContainer, staggerItem, inputFocusVariants } from '@/lib/animations';
 
 interface FormData {
@@ -28,10 +28,19 @@ const ContactSection: React.FC = () => {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    // Create mailto link with form data
+    const subject = encodeURIComponent(data.subject);
+    const body = encodeURIComponent(
+      `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
+    );
+    const mailtoLink = `mailto:tanmaypatil5110@gmail.com?subject=${subject}&body=${body}`;
     
-    console.log('Form submitted:', data);
+    // Open default email client
+    window.location.href = mailtoLink;
+    
+    // Simulate form submission delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
     setIsSubmitting(false);
     setIsSubmitted(true);
     reset();
@@ -44,20 +53,23 @@ const ContactSection: React.FC = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'alex.chen@example.com',
-      href: 'mailto:alex.chen@example.com',
+      value: 'tanmaypatil5110@gmail.com',
+      href: 'mailto:tanmaypatil5110@gmail.com',
+      color: '#ea4335'
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '+91 XXXXX XXXXX',
+      href: 'tel:+91XXXXXXXXXX',
+      color: '#34a853'
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Pune, Maharashtra, India',
       href: '#',
+      color: '#4285f4'
     },
   ];
 
@@ -65,17 +77,20 @@ const ContactSection: React.FC = () => {
     {
       icon: Github,
       label: 'GitHub',
-      href: 'https://github.com',
+      href: 'https://github.com/tanmaypatil',
+      color: '#333'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com',
+      href: 'https://linkedin.com/in/tanmaypatil',
+      color: '#0077B5'
     },
     {
       icon: Twitter,
       label: 'Twitter',
-      href: 'https://twitter.com',
+      href: 'https://twitter.com/tanmaypatil',
+      color: '#1DA1F2'
     },
   ];
 
@@ -93,7 +108,8 @@ const ContactSection: React.FC = () => {
             Get In Touch
           </motion.h2>
           <motion.p variants={staggerItem} className="text-lg text-[var(--neuro-text-secondary)] max-w-3xl mx-auto">
-            Ready to bring your ideas to life? Let's collaborate and create something amazing together.
+            Ready to collaborate on exciting projects? Let's connect and build something amazing together. 
+            I'm always open to discussing new opportunities and innovative ideas.
           </motion.p>
         </motion.div>
 
@@ -110,8 +126,9 @@ const ContactSection: React.FC = () => {
                 Let's Connect
               </h3>
               <p className="text-[var(--neuro-text-secondary)] mb-8 leading-relaxed">
-                I'm always excited to discuss new projects, creative ideas, or opportunities to be part of your visions. 
-                Feel free to reach out through any of the channels below.
+                I'm currently pursuing my B.E. in AI & Data Science and actively seeking internship opportunities, 
+                collaboration projects, and freelance work. Whether you have a project idea, job opportunity, 
+                or just want to chat about technology, I'd love to hear from you!
               </p>
             </motion.div>
 
@@ -124,11 +141,14 @@ const ContactSection: React.FC = () => {
                     key={index}
                     variants={staggerItem}
                     href={info.href}
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ 
+                      scale: 1.02,
+                      boxShadow: `0 10px 25px ${info.color}40`
+                    }}
                     className="neuro-card p-6 flex items-center space-x-4 block hover:glow-effect transition-all duration-300"
                   >
                     <div className="neuro-button p-3">
-                      <Icon className="w-6 h-6 text-[var(--neuro-accent)]" />
+                      <Icon className="w-6 h-6" style={{ color: info.color }} />
                     </div>
                     <div>
                       <div className="font-semibold text-[var(--neuro-text-primary)]">
@@ -142,6 +162,21 @@ const ContactSection: React.FC = () => {
                 );
               })}
             </div>
+
+            {/* Resume Download Button */}
+            <motion.div variants={staggerItem} className="pt-6">
+              <motion.button
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: '0 15px 30px rgba(102, 126, 234, 0.4)'
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="neuro-button px-6 py-4 text-lg font-medium text-[var(--neuro-text-primary)] glow-effect flex items-center space-x-3 w-full justify-center"
+              >
+                <Download className="w-5 h-5" />
+                <span>Download Resume</span>
+              </motion.button>
+            </motion.div>
 
             {/* Social Links */}
             <motion.div variants={staggerItem} className="pt-8">
@@ -157,12 +192,16 @@ const ContactSection: React.FC = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1, y: -2 }}
+                      whileHover={{ 
+                        scale: 1.2, 
+                        y: -5,
+                        boxShadow: `0 10px 25px ${social.color}40`
+                      }}
                       whileTap={{ scale: 0.9 }}
                       className="neuro-button p-4 hover:glow-effect transition-all duration-300"
                       aria-label={social.label}
                     >
-                      <Icon className="w-6 h-6 text-[var(--neuro-accent)]" />
+                      <Icon className="w-6 h-6" style={{ color: social.color }} />
                     </motion.a>
                   );
                 })}
@@ -271,7 +310,7 @@ const ContactSection: React.FC = () => {
                     {...register('message', { required: 'Message is required' })}
                     rows={5}
                     className="w-full px-4 py-3 neuro-inset rounded-lg bg-transparent text-[var(--neuro-text-primary)] focus:outline-none resize-none"
-                    placeholder="Tell me about your project..."
+                    placeholder="Tell me about your project or opportunity..."
                   />
                   {errors.message && (
                     <p className="mt-1 text-sm text-[var(--neuro-error)]">
