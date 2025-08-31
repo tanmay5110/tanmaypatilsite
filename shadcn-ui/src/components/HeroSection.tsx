@@ -238,7 +238,7 @@ const HeroSection: React.FC = () => {
               >
                 <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 neuro-card rounded-full overflow-hidden glow-effect">
                   <img
-                    src="/assets/tanmay-photo.jpeg"
+                    src="/assets/tanmay-photo.jpg"
                     alt="Tanmay Patil"
                     className="w-full h-full object-cover"
                   />
