@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Github, Linkedin, ExternalLink } from 'lucide-react';
 import { staggerContainer, staggerItem, floatingVariants } from '@/lib/animations';
-import tanmayPhoto from '@/assets/tanmay-photo.jpg';
+
 
 const HeroSection: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
@@ -239,9 +239,13 @@ const HeroSection: React.FC = () => {
               >
                 <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 neuro-card rounded-full overflow-hidden glow-effect">
                   <img
-                    src={tanmayPhoto}
+                    src="/tanmay-photo.jpg"
                     alt="Tanmay Patil"
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      console.log('Image failed to load:', e);
+                      e.currentTarget.src = '/images/TanmayPatil.jpg';
+                    }}
                   />
                 </div>
               </motion.div>
