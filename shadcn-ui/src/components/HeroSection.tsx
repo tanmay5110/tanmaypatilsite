@@ -232,13 +232,21 @@ const HeroSection: React.FC = () => {
                 className="relative z-10"
               >
                 <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 neuro-card rounded-full overflow-hidden glow-effect">
-                  <img
-                    src="/profile.jpg"
-                    alt="Tanmay Patil"
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                    fetchPriority="high"
-                  />
+                  <picture>
+                    <source srcSet="/profile.jpg" type="image/jpeg" />
+                    <img
+                      src="/profile.jpg"
+                      srcSet="/profile.jpg 1x, /profile.jpg 2x"
+                      sizes="(min-width:1024px) 24rem, (min-width:768px) 20rem, 16rem"
+                      alt="Tanmay Patil"
+                      width={384}
+                      height={384}
+                      className="w-full h-full object-cover"
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="async"
+                    />
+                  </picture>
                 </div>
               </motion.div>
               

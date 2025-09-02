@@ -270,6 +270,26 @@ const ExperienceSection: React.FC = () => {
                     </div>
                   </div>
                 </motion.div>
+
+                {/* Animated Accent on Empty Side */}
+                <motion.div
+                  aria-hidden
+                  className={`hidden md:block md:w-5/12 w-full relative ${isEven ? 'md:ml-8' : 'md:mr-8'}`}
+                >
+                  <motion.div
+                    animate={{ y: [0, -10, 0], opacity: [0.5, 0.9, 0.5] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                    className="neuro-button rounded-xl p-4"
+                    style={{ background: `${exp.color}15` }}
+                  >
+                    <motion.div
+                      animate={{ x: [0, 10, 0] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                      className="h-2 rounded-full"
+                      style={{ background: `linear-gradient(90deg, ${exp.color}, transparent)` }}
+                    />
+                  </motion.div>
+                </motion.div>
               </motion.div>
             );
           })}
