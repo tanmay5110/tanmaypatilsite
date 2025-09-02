@@ -96,7 +96,7 @@ const ContactSection: React.FC = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 bg-[var(--neuro-bg-secondary)]">
+    <section id="contact" className="py-20 md:py-24 px-4 bg-[var(--neuro-bg-secondary)]">
       <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
@@ -169,17 +169,17 @@ const ContactSection: React.FC = () => {
             }
             <motion.div variants={staggerItem} className="pt-6">
               <motion.a
-                href="https://drive.google.com/uc?export=download&id=1T0Rsm3zYae0-1Cg5RMZTRDjoNC5kMgO-"
-                target="_blank"
+                href="/r_EngineeringResumes_Template__1_ (2) (3).pdf"
+                download="Tanmay_Patil_Resume.pdf"
                 rel="noopener noreferrer"
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: '0 15px 30px rgba(102, 126, 234, 0.4)'
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="neuro-button px-6 py-4 text-lg font-medium text-[var(--neuro-text-primary)] glow-effect flex items-center space-x-3 w-full justify-center"
+                className="neuro-button px-6 py-4 text-lg font-medium text-[var(--neuro-text-primary)] glow-effect flex items-center space-x-3 w-full justify-center group"
               >
-                <Download className="w-5 h-5" />
+                <Download className="w-5 h-5 group-hover:animate-bounce" />
                 <span>Download Resume</span>
               </motion.a>
             </motion.div>

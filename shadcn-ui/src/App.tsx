@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './components/ThemeProvider';
 import Portfolio from './pages/Portfolio';
 import NotFound from './pages/NotFound';
+import Resume from './pages/Resume';
 import './styles/neumorphism.css';
 
 const queryClient = new QueryClient();
@@ -17,6 +18,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Portfolio />} />
+            <Route path="/resume" element={<Resume />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <h3 className="text-2xl font-bold gradient-text">Alex Chen</h3>
+            <h3 className="text-2xl font-bold gradient-text">Tanmay Patil</h3>
             <p className="text-[var(--neuro-text-secondary)] leading-relaxed">
               Crafting digital experiences that inspire and engage. 
               Let's build something amazing together.
@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
               Get In Touch
             </h4>
             <div className="space-y-2 text-[var(--neuro-text-secondary)]">
-              <p>alex.chen@example.com</p>
+              <p>tanmaypatil5110@gmail.com</p>
               <p>+1 (555) 123-4567</p>
               <p>San Francisco, CA</p>
             </div>
@@ -99,7 +99,7 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             className="flex items-center space-x-2 text-[var(--neuro-text-secondary)]"
           >
-            <span>© {currentYear} Alex Chen. Made with</span>
+            <span>© {currentYear} Tanmay Patil. Made with</span>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1, repeat: Infinity }}

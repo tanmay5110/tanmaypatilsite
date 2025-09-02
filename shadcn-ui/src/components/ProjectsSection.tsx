@@ -37,7 +37,7 @@ const ProjectsSection: React.FC = () => {
       icon: Smartphone,
       image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&h=400&fit=crop',
       technologies: ['Flutter', 'Dart', 'Google Vision API', 'OCR', 'Firebase', 'Material Design'],
-      githubUrl: 'https://github.com/tanmay5110/nutribot',
+      githubUrl: 'https://github.com/tanmay5110/food-label-analyzer',
       featured: true,
       color: '#02569b'
     },
@@ -59,14 +59,14 @@ const ProjectsSection: React.FC = () => {
       icon: MessageSquare,
       image: 'https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=600&h=400&fit=crop',
       technologies: ['React', 'Node.js', 'AI Integration', 'WebSocket', 'PostgreSQL', 'Docker'],
-      githubUrl: 'https://github.com/tanmay5110/aetherchat',
+      githubUrl: 'https://github.com/tanmay5110/mernbot',
       featured: false,
       color: '#4ecdc4'
     }
   ];
 
   return (
-    <section id="projects" className="py-16 md:py-20 px-4 bg-[var(--neuro-bg-primary)]">
+    <section id="projects" className="py-20 md:py-24 px-4 bg-[var(--neuro-bg-primary)]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}
@@ -109,11 +109,11 @@ const ProjectsSection: React.FC = () => {
                   }}
                 >
                   {/* Reduced Background Pattern for Mobile */}
-                  <div className="absolute inset-0 opacity-5 hidden md:block">
+                  <div className="absolute inset-0 opacity-5 hidden md:block" aria-hidden>
                     {[...Array(10)].map((_, i) => (
                       <motion.div
                         key={i}
-                        animate={{
+                        animate={typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? {} : {
                           x: [0, 20, 0],
                           y: [0, -15, 0],
                           rotate: [0, 180, 360],

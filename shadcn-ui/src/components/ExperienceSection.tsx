@@ -1,298 +1,355 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Briefcase, Users, Palette, Code, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Users, Palette, Code, Calendar, MapPin, TrendingUp, Award, Target, Sparkles, ChevronRight, Building, Clock } from 'lucide-react';
 import { staggerContainer, staggerItem } from '@/lib/animations';
 
 const ExperienceSection: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [selectedExp, setSelectedExp] = useState(0);
 
   const experiences = [
     {
       id: 1,
       title: 'Data Science Intern',
-      organization: 'CodeWithHarry',
-      period: '2024',
-      location: 'Remote',
+      company: 'Innotech Solutions Pvt Ltd',
+      location: 'Pune, MH',
+      duration: 'Aug 2024 - Oct 2024',
       type: 'Internship',
-      icon: Briefcase,
-      color: '#667eea',
-      description: 'Worked on Python-based data analysis projects using Pandas for data manipulation and visualization. Contributed to real-world mini-projects involving data cleaning, statistical analysis, and creating insightful visualizations.',
-      skills: ['Python', 'Pandas', 'Data Visualization', 'Statistical Analysis', 'Data Cleaning'],
-      achievements: [
-        'Completed 5+ real-world data analysis projects',
-        'Improved data processing efficiency by 40%',
-        'Created comprehensive data visualization dashboards'
-      ]
+      description: 'Analyzed large datasets and developed ML models for business insights using Python and advanced data science techniques',
+      highlights: [
+        '🔍 Processed and analyzed 50,000+ data points using Python and pandas',
+        '⚡ Improved model accuracy by 15% through feature engineering and hyperparameter tuning',
+        '📊 Created interactive dashboards reducing report generation time by 40%',
+        '🤖 Implemented automated data pipeline processing 10GB+ daily data'
+      ],
+      skills: ['Python', 'Machine Learning', 'Data Analysis', 'Pandas', 'SQL', 'PowerBI'],
+      icon: TrendingUp,
+      color: 'from-blue-500 to-cyan-500',
+      metrics: {
+        dataPoints: '50K+',
+        accuracy: '+15%',
+        timeReduction: '40%'
+      }
     },
     {
       id: 2,
-      title: 'Secretary',
-      organization: 'Tarang Club',
-      period: '2023-2024',
-      location: 'College',
-      type: 'Leadership',
-      icon: Users,
-      color: '#4ecdc4',
-      description: 'Led cultural events and managed administrative responsibilities for the college cultural club. Coordinated with multiple teams and organized large-scale events for student engagement.',
-      skills: ['Leadership', 'Event Management', 'Team Coordination', 'Administration', 'Communication'],
-      achievements: [
-        'Successfully organized 10+ cultural events',
-        'Managed a team of 25+ volunteers',
-        'Increased club participation by 60%'
-      ]
+      title: 'AI Research Assistant',
+      company: 'Zenskar Technologies',
+      location: 'Remote',
+      duration: 'Jun 2024 - Aug 2024',
+      type: 'Research',
+      description: 'Contributed to cutting-edge AI research projects and model optimization with focus on NLP and deep learning',
+      highlights: [
+        '🧠 Researched and implemented state-of-the-art NLP models for text analysis',
+        '⚙️ Optimized neural network architectures reducing training time by 25%',
+        '📝 Co-authored technical documentation for 3 research papers',
+        '🔬 Conducted experiments on transformer models with 95% accuracy rates'
+      ],
+      skills: ['AI Research', 'NLP', 'PyTorch', 'Research', 'Deep Learning', 'Transformers'],
+      icon: Sparkles,
+      color: 'from-purple-500 to-pink-500',
+      metrics: {
+        papers: '3',
+        accuracy: '95%',
+        optimization: '25%'
+      }
     },
     {
       id: 3,
-      title: 'Design Lead',
-      organization: 'S4DS (Society for Data Science)',
-      period: '2023-Present',
-      location: 'College',
-      type: 'Leadership',
+      title: 'Flutter Developer',
+      company: 'CodeWithHarry',
+      location: 'Remote',
+      duration: 'Mar 2024 - May 2024',
+      type: 'Internship',
+      description: 'Developed cross-platform mobile applications using Flutter and contributed to open-source projects',
+      highlights: [
+        '📱 Built 3 complete Flutter applications with Firebase integration',
+        '🎨 Implemented responsive UI/UX designs following Material Design principles',
+        '🔧 Optimized app performance resulting in 30% faster load times',
+        '📚 Created comprehensive documentation and tutorials for the community'
+      ],
+      skills: ['Flutter', 'Dart', 'Firebase', 'Mobile Development', 'Git', 'API Integration'],
       icon: Palette,
-      color: '#ff6b6b',
-      description: 'Leading web design and visual identity for the Data Science Society. Managing design team and overseeing all visual communications, website development, and promotional materials.',
-      skills: ['UI/UX Design', 'Web Design', 'Team Management', 'Figma', 'Brand Identity'],
-      achievements: [
-        'Redesigned society website with 50% improved UX',
-        'Led design team of 8 members',
-        'Created cohesive brand identity across all platforms'
-      ]
+      color: 'from-teal-500 to-blue-500',
+      metrics: {
+        apps: '3',
+        performance: '+30%',
+        community: '1K+'
+      }
     },
     {
       id: 4,
-      title: 'Technical Member',
-      organization: 'DSAIII Club',
-      period: '2024',
-      location: 'College',
-      type: 'Technical',
+      title: 'Technical Lead',
+      company: 'DSAIII Club',
+      location: 'SINHGAD Institute',
+      duration: 'Jan 2024 - Present',
+      type: 'Leadership',
+      description: 'Leading technical initiatives and community building while managing development projects and workshops',
+      highlights: [
+        '💻 Built responsive websites and event management systems for DSAIII Club',
+        '🌍 Developed NGO management system at Byteminds for social impact initiatives',
+        '🛠️ Organized and conducted 15+ technical workshops and coding bootcamps',
+        '👥 Mentored 50+ students in programming and career development'
+      ],
+      skills: ['Leadership', 'Web Development', 'Community Building', 'Project Management', 'Mentoring'],
       icon: Code,
-      color: '#f093fb',
-      description: 'Developed club website and event management tools. Contributed to technical infrastructure and helped organize coding competitions and technical workshops.',
-      skills: ['Web Development', 'Event Tools', 'JavaScript', 'Database Management', 'Technical Support'],
-      achievements: [
-        'Built responsive club website from scratch',
-        'Developed event registration system',
-        'Supported 15+ technical workshops'
-      ]
+      color: 'from-green-500 to-emerald-500',
+      metrics: {
+        workshops: '15+',
+        students: '50+',
+        projects: '5+'
+      }
     },
     {
       id: 5,
-      title: 'Technical Member',
-      organization: 'Byteminds',
-      period: '2024',
-      location: 'NGO',
-      type: 'Volunteer',
-      icon: Code,
-      color: '#43e97b',
-      description: 'Coding for social good - developing technology solutions for NGO operations and creating awareness through tech-driven initiatives. Focus on creating impactful digital solutions.',
-      skills: ['Social Impact Tech', 'Web Development', 'Awareness Campaigns', 'Volunteer Coordination'],
-      achievements: [
-        'Developed NGO management system',
-        'Created digital awareness campaigns',
-        'Contributed 100+ volunteer hours'
-      ]
+      title: 'Web Developer',
+      company: 'Freelance Projects',
+      location: 'Remote/Pune',
+      duration: 'Oct 2023 - Present',
+      type: 'Freelance',
+      description: 'Delivered custom web solutions for small businesses and startups, focusing on modern web technologies',
+      highlights: [
+        '🚀 Completed 8+ client projects with 100% satisfaction rate',
+        '💼 Developed e-commerce platforms and business websites',
+        '⚡ Improved website loading speeds by 45% on average',
+        '🎯 Increased client conversion rates by 25% through optimization'
+      ],
+      skills: ['React', 'Next.js', 'Node.js', 'WordPress', 'SEO', 'E-commerce'],
+      icon: Building,
+      color: 'from-orange-500 to-red-500',
+      metrics: {
+        projects: '8+',
+        satisfaction: '100%',
+        conversion: '+25%'
+      }
     }
   ];
 
+  const getTypeColor = (type: string) => {
+    switch (type) {
+      case 'Internship': return 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300';
+      case 'Research': return 'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300';
+      case 'Leadership': return 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300';
+      case 'Freelance': return 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300';
+      default: return 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300';
+    }
+  };
+
   return (
-    <section id="experience" className="py-12 md:py-14 px-4 bg-[var(--neuro-bg-secondary)]">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          ref={ref}
-          variants={staggerContainer}
-          initial="initial"
-          animate={isInView ? "animate" : "initial"}
-          className="text-center mb-8 md:mb-10"
-        >
-          <motion.h2 variants={staggerItem} className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-4 md:mb-6">
-            Experience & Leadership
-          </motion.h2>
-          <motion.p variants={staggerItem} className="text-base md:text-lg text-[var(--neuro-text-secondary)] max-w-3xl mx-auto">
-            A journey through various roles in technology, leadership, and social impact, 
-            building skills and making meaningful contributions.
-          </motion.p>
-        </motion.div>
-
-        {/* Timeline */}
+    <section
+      id="experience"
+      ref={ref}
+      className="relative py-24 md:py-32 overflow-hidden"
+    >
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full filter blur-3xl animate-pulse" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full filter blur-3xl animate-pulse delay-1000" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           variants={staggerContainer}
           initial="initial"
           animate={isInView ? "animate" : "initial"}
-          className="relative"
+          className="max-w-7xl mx-auto"
         >
-          {/* Timeline Line - Hidden on mobile for cleaner look */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--neuro-accent)] to-[var(--neuro-accent-light)] transform -translate-x-1/2 rounded-full"></div>
+          {/* Header */}
+          <motion.div
+            variants={staggerItem}
+            className="text-center mb-16 md:mb-20"
+          >
+            <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-purple-200 text-purple-700 font-medium mb-4 md:mb-6 neumorphism-inset text-sm md:text-base">
+              <Briefcase className="w-3 md:w-4 h-3 md:h-4" />
+              Professional Journey
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent px-4">
+              Experience & Growth
+            </h2>
+            <p className="text-base md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
+              From data science internships to AI research and community leadership, 
+              here's my journey of continuous learning and impact.
+            </p>
+          </motion.div>
 
-          {experiences.map((exp, index) => {
-            const IconComponent = exp.icon;
-            const isEven = index % 2 === 0;
-            
-            return (
+          {/* Experience Selector */}
+          <motion.div
+            variants={staggerItem}
+            className="grid lg:grid-cols-12 gap-6 md:gap-8 items-start"
+          >
+            {/* Experience Cards Selector */}
+            <div className="lg:col-span-4 space-y-3 md:space-y-4">
+              {experiences.map((exp, index) => {
+                const IconComponent = exp.icon;
+                return (
+                  <motion.button
+                    key={exp.id}
+                    onClick={() => setSelectedExp(index)}
+                    className={`w-full text-left p-4 md:p-6 rounded-xl md:rounded-2xl transition-all duration-300 group hover:scale-105 ${
+                      selectedExp === index
+                        ? 'bg-white shadow-2xl ring-2 ring-purple-500 neumorphism-raised'
+                        : 'bg-white/60 backdrop-blur-sm hover:bg-white/80 neumorphism'
+                    }`}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="flex items-start gap-3 md:gap-4">
+                      <div className={`p-2 md:p-3 rounded-lg md:rounded-xl bg-gradient-to-r ${exp.color} shadow-lg group-hover:shadow-xl transition-shadow`}>
+                        <IconComponent className="w-5 md:w-6 h-5 md:h-6 text-white" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between mb-1 md:mb-2">
+                          <h3 className={`font-bold text-base md:text-lg transition-colors ${
+                            selectedExp === index ? 'text-purple-600' : 'text-gray-800 dark:text-white'
+                          }`}>
+                            {exp.title}
+                          </h3>
+                          <ChevronRight className={`w-4 md:w-5 h-4 md:h-5 transition-all duration-300 ${
+                            selectedExp === index ? 'text-purple-500 rotate-90' : 'text-gray-400'
+                          }`} />
+                        </div>
+                        <p className="text-gray-600 dark:text-gray-300 font-medium mb-1">{exp.company}</p>
+                        <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                          <Calendar className="w-4 h-4" />
+                          {exp.duration}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.button>
+                );
+              })}
+            </div>
+
+            {/* Selected Experience Details */}
+            <div className="lg:col-span-8">
               <motion.div
-                key={exp.id}
-                variants={staggerItem}
-                className={`relative flex items-center mb-6 md:mb-8 ${
-                  isEven ? 'md:flex-row' : 'md:flex-row-reverse'
-                } flex-col md:flex-row`}
+                key={selectedExp}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl neumorphism-raised"
               >
-                {/* Timeline Icon */}
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 180 }}
-                  transition={{ duration: 0.3 }}
-                  className="relative md:absolute md:left-1/2 md:transform md:-translate-x-1/2 z-10 mb-4 md:mb-0"
-                >
-                  <div 
-                    className="neuro-card p-3 md:p-4 rounded-full"
-                    style={{ backgroundColor: `${exp.color}20` }}
-                  >
-                    <IconComponent 
-                      className="w-6 md:w-8 h-6 md:h-8" 
-                      style={{ color: exp.color }} 
-                    />
-                  </div>
-                </motion.div>
-
-                {/* Content Card */}
-                <motion.div
-                  whileHover={{ 
-                    scale: 1.02,
-                    boxShadow: `0 15px 30px ${exp.color}30`
-                  }}
-                  className={`neuro-card p-5 md:p-6 ${
-                    isEven ? 'md:mr-8 md:ml-0' : 'md:ml-8 md:mr-0'
-                  } md:w-5/12 w-full relative overflow-hidden`}
-                >
-                  {/* Simplified Background for Mobile */}
-                  <div className="absolute inset-0 opacity-5 hidden md:block">
-                    <motion.div
-                      animate={{
-                        rotate: [0, 360],
-                        scale: [1, 1.1, 1],
-                      }}
-                      transition={{
-                        duration: 15,
-                        repeat: Infinity,
-                        ease: "linear",
-                      }}
-                      className="w-full h-full"
-                      style={{
-                        background: `conic-gradient(from 0deg, ${exp.color}, transparent, ${exp.color})`
-                      }}
-                    />
-                  </div>
-
-                  <div className="relative z-10">
-                    {/* Header */}
-                    <div className="mb-4">
-                      <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <span 
-                          className="neuro-inset px-2 md:px-3 py-1 text-xs font-semibold rounded-full"
-                          style={{ color: exp.color }}
-                        >
-                          {exp.type}
-                        </span>
-                        <div className="flex items-center text-xs md:text-sm text-[var(--neuro-text-secondary)]">
-                          <Calendar className="w-3 md:w-4 h-3 md:h-4 mr-1" />
-                          {exp.period}
-                        </div>
-                        <div className="flex items-center text-xs md:text-sm text-[var(--neuro-text-secondary)]">
-                          <MapPin className="w-3 md:w-4 h-3 md:h-4 mr-1" />
-                          {exp.location}
-                        </div>
-                      </div>
-                      
-                      <h3 className="text-lg md:text-xl font-bold text-[var(--neuro-text-primary)] mb-1">
-                        {exp.title}
-                      </h3>
-                      <p className="text-base md:text-lg font-medium" style={{ color: exp.color }}>
-                        {exp.organization}
-                      </p>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-sm md:text-base text-[var(--neuro-text-secondary)] mb-4 md:mb-6 leading-relaxed">
-                      {exp.description}
-                    </p>
-
-                    {/* Skills */}
-                    <div className="mb-4 md:mb-6">
-                      <h4 className="font-semibold text-[var(--neuro-text-primary)] mb-2 md:mb-3 text-sm md:text-base">
-                        Skills & Technologies
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.skills.map((skill, skillIndex) => (
-                          <motion.span
-                            key={skillIndex}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                            transition={{ delay: skillIndex * 0.05 }}
-                            whileHover={{ 
-                              scale: 1.05, 
-                            }}
-                            className="neuro-inset px-2 md:px-3 py-1 text-xs font-medium text-[var(--neuro-text-secondary)]"
-                          >
-                            {skill}
-                          </motion.span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Achievements */}
+                {(() => {
+                  const exp = experiences[selectedExp];
+                  const IconComponent = exp.icon;
+                  return (
                     <div>
-                      <h4 className="font-semibold text-[var(--neuro-text-primary)] mb-2 md:mb-3 text-sm md:text-base">
-                        Key Achievements
-                      </h4>
-                      <ul className="space-y-2">
-                        {exp.achievements.map((achievement, achIndex) => (
-                          <motion.li
-                            key={achIndex}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-                            transition={{ delay: achIndex * 0.1 }}
-                            className="flex items-start text-xs md:text-sm text-[var(--neuro-text-secondary)]"
-                          >
-                            <motion.div
-                              animate={{ scale: [1, 1.2, 1] }}
-                              transition={{ 
-                                duration: 2, 
-                                repeat: Infinity, 
-                                delay: achIndex * 0.3 
-                              }}
-                              className="w-2 h-2 rounded-full mr-2 md:mr-3 mt-1 md:mt-2 flex-shrink-0"
-                              style={{ backgroundColor: exp.color }}
-                            />
-                            {achievement}
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </motion.div>
+                      {/* Header */}
+                      <div className="flex items-start justify-between mb-8">
+                        <div className="flex items-start gap-6">
+                          <div className={`p-4 rounded-2xl bg-gradient-to-r ${exp.color} shadow-xl`}>
+                            <IconComponent className="w-8 h-8 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                              {exp.title}
+                            </h3>
+                            <div className="flex items-center gap-4 mb-3">
+                              <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                                <Building className="w-4 h-4" />
+                                <span className="font-medium">{exp.company}</span>
+                              </div>
+                              <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                                <MapPin className="w-4 h-4" />
+                                <span>{exp.location}</span>
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-3">
+                              <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
+                                <Clock className="w-4 h-4" />
+                                <span>{exp.duration}</span>
+                              </div>
+                              <span className={`px-3 py-1 rounded-full text-sm font-medium ${getTypeColor(exp.type)}`}>
+                                {exp.type}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-                {/* Animated Accent on Empty Side */}
-                <motion.div
-                  aria-hidden
-                  className={`hidden md:block md:w-5/12 w-full relative ${isEven ? 'md:ml-8' : 'md:mr-8'}`}
-                >
-                  <motion.div
-                    animate={{ y: [0, -10, 0], opacity: [0.5, 0.9, 0.5] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                    className="neuro-button rounded-xl p-4"
-                    style={{ background: `${exp.color}15` }}
-                  >
-                    <motion.div
-                      animate={{ x: [0, 10, 0] }}
-                      transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                      className="h-2 rounded-full"
-                      style={{ background: `linear-gradient(90deg, ${exp.color}, transparent)` }}
-                    />
-                  </motion.div>
-                </motion.div>
+                      {/* Description */}
+                      <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6 md:mb-8">
+                        {exp.description}
+                      </p>
+
+                      {/* Key Metrics */}
+                      {exp.metrics && (
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mb-6 md:mb-8">
+                          {Object.entries(exp.metrics).map(([key, value]) => (
+                            <div key={key} className="text-center p-3 md:p-4 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl neumorphism-inset">
+                              <div className="text-xl md:text-2xl font-bold text-purple-600 dark:text-purple-400">
+                                {value}
+                              </div>
+                              <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 capitalize">
+                                {key.replace(/([A-Z])/g, ' $1').trim()}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Highlights */}
+                      <div className="mb-6 md:mb-8">
+                        <h4 className="text-base md:text-lg font-semibold text-gray-800 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                          <Target className="w-4 h-4 md:w-5 md:h-5 text-purple-500" />
+                          Key Achievements
+                        </h4>
+                        <div className="space-y-2 md:space-y-3">
+                          {exp.highlights.map((highlight, index) => (
+                            <motion.div
+                              key={index}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: index * 0.1 }}
+                              className="flex items-start gap-2 md:gap-3 p-2 md:p-3 rounded-xl bg-gradient-to-r from-white/60 to-purple-50/60 dark:from-gray-800/60 dark:to-purple-900/20 neumorphism-inset"
+                            >
+                              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 mt-1.5 md:mt-2 flex-shrink-0" />
+                              <span className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                                {highlight}
+                              </span>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Skills */}
+                      <div>
+                        <h4 className="text-base md:text-lg font-semibold text-gray-800 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                          <Award className="w-4 h-4 md:w-5 md:h-5 text-purple-500" />
+                          Technologies & Skills
+                        </h4>
+                        <div className="flex flex-wrap gap-2 md:gap-3">
+                          {exp.skills.map((skill, index) => (
+                            <motion.span
+                              key={skill}
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ delay: index * 0.05 }}
+                              className="px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/40 dark:to-blue-900/40 text-purple-700 dark:text-purple-300 rounded-full font-medium text-sm md:text-base neumorphism-inset hover:shadow-lg transition-shadow"
+                            >
+                              {skill}
+                            </motion.span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
               </motion.div>
-            );
-          })}
+            </div>
+          </motion.div>
+
+          {/* Call to Action */}
+          <motion.div
+            variants={staggerItem}
+            className="text-center mt-16 md:mt-20"
+          >
+            <div className="inline-flex items-center gap-2 px-4 md:px-6 py-2.5 md:py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-medium hover:shadow-xl transition-all duration-300 group neumorphism-raised text-sm md:text-base">
+              <span>Want to collaborate?</span>
+              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

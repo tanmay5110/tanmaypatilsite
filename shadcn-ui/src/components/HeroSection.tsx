@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Github, Linkedin, ExternalLink } from 'lucide-react';
+import siteConfig from '@/lib/siteConfig';
 import { staggerContainer, staggerItem, floatingVariants } from '@/lib/animations';
 
 
@@ -32,14 +33,14 @@ const HeroSection: React.FC = () => {
   const socialLinks = [
     {
       icon: Linkedin,
-      label: 'LinkedIn',
-      href: 'https://linkedin.com/in/tanmay5110',
+  label: 'LinkedIn',
+  href: siteConfig.social.linkedin,
       color: '#0077B5'
     },
     {
       icon: Github,
-      label: 'GitHub',
-      href: 'https://github.com/tanmay5110',
+  label: 'GitHub',
+  href: siteConfig.social.github,
       color: '#333'
     }
   ];
@@ -57,30 +58,30 @@ const HeroSection: React.FC = () => {
   ];
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 pt-20 md:pt-24">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--neuro-bg-primary)] to-[var(--neuro-bg-secondary)]">
-        {/* Optimized Background Particles */}
-        {particlePositions.map((particle, i) => (
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--neuro-bg-primary)] via-[var(--neuro-bg-secondary)] to-[var(--neuro-bg-primary)]" />
+      
+      {/* Optimized Background Particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {particlePositions.map((particle, index) => (
           <motion.div
-            key={i}
+            key={index}
+            className="absolute w-2 h-2 bg-gradient-to-r from-[var(--neuro-accent)] to-[var(--neuro-accent-light)] rounded-full opacity-60"
+            style={{
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+            }}
             animate={{
-              y: [0, -25, 0],
-              x: [0, 10, 0],
-              opacity: [0.3, 0.6, 0.3],
+              y: [-10, 10, -10],
+              opacity: [0.3, 0.7, 0.3],
               scale: [0.8, 1.2, 0.8],
             }}
             transition={{
               duration: particle.duration,
               repeat: Infinity,
-              ease: "easeInOut",
               delay: particle.delay,
-            }}
-            className="absolute neuro-card w-2 h-2 rounded-full opacity-30"
-            style={{
-              left: `${particle.x}%`,
-              top: `${particle.y}%`,
-              background: 'linear-gradient(45deg, var(--neuro-accent), var(--neuro-accent-light))'
+              ease: "easeInOut",
             }}
           />
         ))}
@@ -231,16 +232,16 @@ const HeroSection: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 className="relative z-10"
               >
-                <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 neuro-card rounded-full overflow-hidden glow-effect">
+                <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 neuro-card rounded-full overflow-hidden glow-effect mx-auto">
                   <picture>
                     <source srcSet="/tanmay-photo.webp" type="image/webp" />
                     <img
                       src="/tanmay-photo.webp"
-                      sizes="(min-width:1024px) 24rem, (min-width:768px) 20rem, 16rem"
+                      sizes="(min-width:1024px) 24rem, (min-width:768px) 20rem, (min-width:640px) 16rem, 12rem"
                       alt="Tanmay Patil"
                       width={384}
                       height={384}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-center"
                       loading="eager"
                       fetchPriority="high"
                       decoding="async"

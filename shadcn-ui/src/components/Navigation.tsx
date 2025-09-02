@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
+import siteConfig from '@/lib/siteConfig';
 import { navVariants } from '@/lib/animations';
 
 const Navigation: React.FC = () => {
@@ -80,7 +81,7 @@ const Navigation: React.FC = () => {
                 whileTap={{ scale: 0.9 }}
                 onClick={toggleTheme}
                 className="neuro-button p-2"
-                aria-label="Toggle theme"
+                aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
               >
                 {theme === 'light' ? (
                   <Moon className="w-5 h-5 text-[var(--neuro-text-primary)]" />
@@ -111,7 +112,7 @@ const Navigation: React.FC = () => {
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="neuro-button p-2"
-                aria-label="Toggle menu"
+                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               >
                 {isMobileMenuOpen ? (
                   <X className="w-5 h-5 text-[var(--neuro-text-primary)]" />

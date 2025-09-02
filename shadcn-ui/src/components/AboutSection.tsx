@@ -54,7 +54,7 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-16 md:py-20 px-4 bg-[var(--neuro-bg-secondary)]">
+    <section id="about" className="py-20 md:py-24 px-4 bg-[var(--neuro-bg-secondary)]">
       <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
@@ -66,19 +66,6 @@ const AboutSection: React.FC = () => {
           <motion.h2 variants={staggerItem} className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-4 md:mb-6">
             About Me
           </motion.h2>
-          <motion.p variants={staggerItem} className="text-base md:text-lg text-[var(--neuro-text-secondary)] max-w-3xl mx-auto">
-            Passionate AI/Data Science student with hands-on experience in automation, mobile development, 
-            and creating innovative solutions that bridge technology and real-world applications.
-          </motion.p>
-        </motion.div>
-
-        {/* Education Section */}
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          animate={isInView ? "animate" : "initial"}
-          className="mb-12 md:mb-16"
-        >
           <motion.h3 variants={staggerItem} className="text-xl md:text-2xl font-semibold text-[var(--neuro-text-primary)] mb-6 md:mb-8 text-center">
             Education
           </motion.h3>
@@ -225,10 +212,11 @@ const AboutSection: React.FC = () => {
                 Current Focus
               </h4>
               <p className="text-[var(--neuro-text-secondary)] leading-relaxed text-sm md:text-base">
-                🔥 Data Science Intern at <strong>CodeWithHarry</strong><br/>
-                📚 Hands-on experience with Python, Pandas, NumPy, statistics, and real-world data science projects<br/>
-                🎯 Leading design initiatives at S4DS (Society for Data Science)<br/>
-                🤝 Contributing to social causes through tech at Byteminds NGO
+                🔥 Data Science Intern at <strong>Innotech Solutions Pvt Ltd</strong> (Aug 2024 - Oct 2024)<br/>
+                📚 Processed and analyzed 50,000+ data points using Python, Pandas, NumPy<br/>
+                🤖 AI Research Assistant at <strong>Zenskar Technologies</strong> (Jun 2024 - Aug 2024)<br/>
+                🎯 Full Stack Developer at <strong>DSAIII Club</strong> - Leading technical initiatives<br/>
+                🌍 Contributing to social causes through tech at Byteminds NGO
               </p>
             </motion.div>
 
