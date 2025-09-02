@@ -36,7 +36,8 @@ const ContactSection: React.FC = () => {
     const mailtoLink = `mailto:tanmaypatil5110@gmail.com?subject=${subject}&body=${body}`;
     
     // Open default email client
-    window.location.href = mailtoLink;
+    // Open in a new tab to avoid navigation blocking and keep UX smooth
+    window.open(mailtoLink, '_blank', 'noopener,noreferrer');
     
     // Simulate form submission delay
     await new Promise(resolve => setTimeout(resolve, 1000));
@@ -60,8 +61,8 @@ const ContactSection: React.FC = () => {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+91 XXXXX XXXXX',
-      href: 'tel:+91XXXXXXXXXX',
+      value: '+91 9175025114',
+      href: 'tel:+919175025114',
       color: '#34a853'
     },
     {
@@ -163,9 +164,14 @@ const ContactSection: React.FC = () => {
               })}
             </div>
 
-            {/* Resume Download Button */}
+            {/* Resume Download Button */
+            // Uses Google Drive direct download link pattern with safety attributes
+            }
             <motion.div variants={staggerItem} className="pt-6">
-              <motion.button
+              <motion.a
+                href="https://drive.google.com/uc?export=download&id=1T0Rsm3zYae0-1Cg5RMZTRDjoNC5kMgO-"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: '0 15px 30px rgba(102, 126, 234, 0.4)'
@@ -175,38 +181,10 @@ const ContactSection: React.FC = () => {
               >
                 <Download className="w-5 h-5" />
                 <span>Download Resume</span>
-              </motion.button>
+              </motion.a>
             </motion.div>
 
-            {/* Social Links */}
-            <motion.div variants={staggerItem} className="pt-8">
-              <h4 className="text-lg font-semibold text-[var(--neuro-text-primary)] mb-4">
-                Follow Me
-              </h4>
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => {
-                  const Icon = social.icon;
-                  return (
-                    <motion.a
-                      key={index}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ 
-                        scale: 1.2, 
-                        y: -5,
-                        boxShadow: `0 10px 25px ${social.color}40`
-                      }}
-                      whileTap={{ scale: 0.9 }}
-                      className="neuro-button p-4 hover:glow-effect transition-all duration-300"
-                      aria-label={social.label}
-                    >
-                      <Icon className="w-6 h-6" style={{ color: social.color }} />
-                    </motion.a>
-                  );
-                })}
-              </div>
-            </motion.div>
+            {/* Social Links removed as requested */}
           </motion.div>
 
           {/* Contact Form */}

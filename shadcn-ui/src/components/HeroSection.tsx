@@ -41,12 +41,6 @@ const HeroSection: React.FC = () => {
       label: 'GitHub',
       href: 'https://github.com/tanmay5110',
       color: '#333'
-    },
-    {
-      icon: ExternalLink,
-      label: 'Portfolio',
-      href: 'https://tanmaypatil.fun',
-      color: '#667eea'
     }
   ];
 
@@ -160,7 +154,7 @@ const HeroSection: React.FC = () => {
                   whileHover={{ scale: 1.05, color: 'var(--neuro-accent)' }}
                   className="transition-colors cursor-pointer"
                 >
-                  📱 +91 9876543210
+                  📱 +91 9175025114
                 </motion.span>
               </div>
             </motion.div>
@@ -239,13 +233,11 @@ const HeroSection: React.FC = () => {
               >
                 <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 neuro-card rounded-full overflow-hidden glow-effect">
                   <img
-                    src="/tanmay-photo.jpg"
+                    src="/profile.jpg"
                     alt="Tanmay Patil"
                     className="w-full h-full object-cover"
-                    onError={(e) => {
-                      console.log('Image failed to load:', e);
-                      e.currentTarget.src = '/images/TanmayPatil.jpg';
-                    }}
+                    loading="eager"
+                    fetchPriority="high"
                   />
                 </div>
               </motion.div>

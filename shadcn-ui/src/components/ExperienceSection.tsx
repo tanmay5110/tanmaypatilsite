@@ -97,14 +97,14 @@ const ExperienceSection: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-16 md:py-20 px-4 bg-[var(--neuro-bg-secondary)]">
+    <section id="experience" className="py-12 md:py-14 px-4 bg-[var(--neuro-bg-secondary)]">
       <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
           variants={staggerContainer}
           initial="initial"
           animate={isInView ? "animate" : "initial"}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-8 md:mb-10"
         >
           <motion.h2 variants={staggerItem} className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-4 md:mb-6">
             Experience & Leadership
@@ -133,7 +133,7 @@ const ExperienceSection: React.FC = () => {
               <motion.div
                 key={exp.id}
                 variants={staggerItem}
-                className={`relative flex items-center mb-8 md:mb-12 ${
+                className={`relative flex items-center mb-6 md:mb-8 ${
                   isEven ? 'md:flex-row' : 'md:flex-row-reverse'
                 } flex-col md:flex-row`}
               >
@@ -160,7 +160,7 @@ const ExperienceSection: React.FC = () => {
                     scale: 1.02,
                     boxShadow: `0 15px 30px ${exp.color}30`
                   }}
-                  className={`neuro-card p-6 md:p-8 ${
+                  className={`neuro-card p-5 md:p-6 ${
                     isEven ? 'md:mr-8 md:ml-0' : 'md:ml-8 md:mr-0'
                   } md:w-5/12 w-full relative overflow-hidden`}
                 >
