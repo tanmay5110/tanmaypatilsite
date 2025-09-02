@@ -2,17 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
 import siteConfig from '@/lib/siteConfig';
+import { downloadFile, isMobileDevice } from '@/lib/downloadUtils';
 
 const ResumePage: React.FC = () => {
   const handleDownload = () => {
-    // Direct download from public folder
-    const link = document.createElement('a');
-    link.href = siteConfig.resume;
-    link.download = 'Tanmay_Patil_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    downloadFile(siteConfig.resume, 'Tanmay_Patil_Resume.pdf');
   };
+
+  const isMobile = isMobileDevice();
 
   return (
     <main className="min-h-screen flex items-center justify-center px-4 py-16 bg-[var(--neuro-bg-secondary)]">
@@ -38,6 +35,10 @@ const ResumePage: React.FC = () => {
           </motion.button>
 
           <p className="text-sm text-[var(--neuro-text-secondary)] mt-6">
+            {isMobile 
+              ? "On mobile? The resume will open in a new tab where you can view and download it." 
+              : "Click to download the PDF file directly to your device."
+            }<br/>
             Having trouble? Email me at <a className="underline gradient-text" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
           </p>
         </motion.div>

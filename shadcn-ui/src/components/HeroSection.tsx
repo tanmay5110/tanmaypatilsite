@@ -191,6 +191,8 @@ const HeroSection: React.FC = () => {
                 whileHover={{ scale: 1.05, boxShadow: '0 15px 30px rgba(102, 126, 234, 0.4)' }}
                 whileTap={{ scale: 0.95 }}
                 href="/Tanmay_Patil_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 download="Tanmay_Patil_Resume.pdf"
                 className="neuro-button px-6 py-3 text-base font-medium text-[var(--neuro-text-primary)] glow-effect inline-flex items-center justify-center text-center"
               >
