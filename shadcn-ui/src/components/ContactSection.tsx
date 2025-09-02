@@ -162,7 +162,7 @@ const ContactSection: React.FC = () => {
             }
             <motion.div variants={staggerItem} className="pt-6">
               <motion.a
-                href="/r_EngineeringResumes_Template__1_ (2) (3).pdf"
+                href="/Tanmay_Patil_Resume.pdf"
                 download="Tanmay_Patil_Resume.pdf"
                 rel="noopener noreferrer"
                 whileHover={{ 

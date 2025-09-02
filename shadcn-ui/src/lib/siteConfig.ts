@@ -9,7 +9,7 @@ export const siteConfig = {
     twitter: 'https://twitter.com/tanmaypatil'
   },
   // Resume stored locally in public directory
-  resume: '/r_EngineeringResumes_Template__1_ (2) (3).pdf'
+  resume: '/Tanmay_Patil_Resume.pdf'
 };
 
 export default siteConfig;
