@@ -50,18 +50,8 @@ const Navigation: React.FC = () => {
             isScrolled ? 'backdrop-blur-md bg-opacity-90' : ''
           }`}
         >
-          <div className="flex justify-between items-center">
-            {/* Logo */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="text-xl font-bold gradient-text cursor-pointer"
-              onClick={() => scrollToSection('hero')}
-            >
-              Tanmay Patil
-            </motion.div>
-
-            {/* Desktop Navigation */}
+          <div className="flex justify-center items-center relative">
+            {/* Desktop Navigation - Centered */}
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
                 <motion.button
@@ -74,8 +64,10 @@ const Navigation: React.FC = () => {
                   {item.label}
                 </motion.button>
               ))}
-              
-              {/* Theme Toggle */}
+            </div>
+            
+            {/* Theme Toggle - Right Side */}
+            <div className="hidden md:block absolute right-0">
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}

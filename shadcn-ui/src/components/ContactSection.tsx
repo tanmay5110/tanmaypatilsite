@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Download } from 'lucide-react';
+import { Mail, MapPin, Send, Github, Linkedin, Twitter, Download } from 'lucide-react';
 import { staggerContainer, staggerItem, inputFocusVariants } from '@/lib/animations';
 
 interface FormData {
@@ -57,13 +57,6 @@ const ContactSection: React.FC = () => {
       value: 'tanmaypatil5110@gmail.com',
       href: 'mailto:tanmaypatil5110@gmail.com',
       color: '#ea4335'
-    },
-    {
-      icon: Phone,
-      label: 'Phone',
-      value: '+91 9175025114',
-      href: 'tel:+919175025114',
-      color: '#34a853'
     },
     {
       icon: MapPin,

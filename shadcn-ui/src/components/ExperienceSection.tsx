@@ -1,138 +1,165 @@
 import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Briefcase, Users, Palette, Code, Calendar, MapPin, TrendingUp, Award, Target, Sparkles, ChevronRight, Building, Clock } from 'lucide-react';
+import { 
+  Briefcase, Users, Palette, Code, Calendar, MapPin, TrendingUp, 
+  Award, Target, ChevronRight, Building, Clock, GraduationCap,
+  Database, BookOpen, Heart, Star, Zap
+} from 'lucide-react';
 import { staggerContainer, staggerItem } from '@/lib/animations';
 
 const ExperienceSection: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [selectedExp, setSelectedExp] = useState(0);
+  const [selectedExp, setSelectedExp] = useState(-1);
 
   const experiences = [
     {
       id: 1,
-      title: 'Data Science Intern',
-      company: 'Innotech Solutions Pvt Ltd',
-      location: 'Pune, MH',
-      duration: 'Aug 2024 - Oct 2024',
-      type: 'Internship',
-      description: 'Analyzed large datasets and developed ML models for business insights using Python and advanced data science techniques',
-      highlights: [
-        '🔍 Processed and analyzed 50,000+ data points using Python and pandas',
-        '⚡ Improved model accuracy by 15% through feature engineering and hyperparameter tuning',
-        '📊 Created interactive dashboards reducing report generation time by 40%',
-        '🤖 Implemented automated data pipeline processing 10GB+ daily data'
+      title: 'Secretary',
+      company: 'Tarang Club (Cultural)',
+      institution: 'D. Y. Patil Institute of Technology (DYPIT)',
+      duration: '2024 – Present',
+      type: 'Leadership',
+      category: 'Experience',
+      description: 'Led the cultural club\'s administration, event coordination, and team initiatives.',
+      overview: 'Led the cultural club\'s administration, event coordination, and team initiatives.',
+      impact: [
+        'Organized 7+ major campus events and festivals',
+        'Managed communications for 40+ team members'
       ],
-      skills: ['Python', 'Machine Learning', 'Data Analysis', 'Pandas', 'SQL', 'PowerBI'],
-      icon: TrendingUp,
-      color: 'from-blue-500 to-cyan-500',
-      metrics: {
-        dataPoints: '50K+',
-        accuracy: '+15%',
-        timeReduction: '40%'
-      }
+      achievements: [
+        '🎤 Hosted flagship annual cultural fest',
+        '🗂️ Improved digital coordination workflows'
+      ],
+      skills: ['Event Management', 'Administration', 'Team Communication'],
+      technologies: ['Event Management Tools', 'Communication Platforms'],
+      icon: Users,
+      color: 'from-purple-500 to-pink-500',
+      bgGradient: 'from-purple-50 to-pink-50',
+      borderColor: 'border-purple-200'
     },
     {
       id: 2,
-      title: 'AI Research Assistant',
-      company: 'Zenskar Technologies',
-      location: 'Remote',
-      duration: 'Jun 2024 - Aug 2024',
-      type: 'Research',
-      description: 'Contributed to cutting-edge AI research projects and model optimization with focus on NLP and deep learning',
-      highlights: [
-        '🧠 Researched and implemented state-of-the-art NLP models for text analysis',
-        '⚙️ Optimized neural network architectures reducing training time by 25%',
-        '📝 Co-authored technical documentation for 3 research papers',
-        '🔬 Conducted experiments on transformer models with 95% accuracy rates'
+      title: 'Design Lead',
+      company: 'S4DS (Society for Data Science)',
+      institution: 'D. Y. Patil Institute of Technology (DYPIT)',
+      duration: '2024 – Present',
+      type: 'Leadership',
+      category: 'Experience',
+      description: 'Managed design and web presence for the college\'s chapter of the national data science society, leading a campus-wide team.',
+      overview: 'Managed design and web presence for the college\'s chapter of the national data science society, leading a campus-wide team.',
+      impact: [
+        'Directed a team of 8+ designers/volunteers',
+        'Oversaw 10+ successful design campaigns and college events'
       ],
-      skills: ['AI Research', 'NLP', 'PyTorch', 'Research', 'Deep Learning', 'Transformers'],
-      icon: Sparkles,
-      color: 'from-purple-500 to-pink-500',
-      metrics: {
-        papers: '3',
-        accuracy: '95%',
-        optimization: '25%'
-      }
+      achievements: [
+        '🖥️ Modernized the S4DS website and digital assets',
+        '🎨 Created event branding for college-wide hackathons',
+        '🙌 Led creative collaboration among campus societies'
+      ],
+      skills: ['Web Design', 'Team Leadership', 'Branding', 'Event Coordination'],
+      technologies: ['Figma', 'HTML', 'CSS', 'JavaScript', 'Branding Tools'],
+      icon: Palette,
+      color: 'from-cyan-500 to-blue-500',
+      bgGradient: 'from-cyan-50 to-blue-50',
+      borderColor: 'border-cyan-200'
     },
     {
       id: 3,
-      title: 'Flutter Developer',
+      title: 'Data Science Intern',
       company: 'CodeWithHarry',
-      location: 'Remote',
-      duration: 'Mar 2024 - May 2024',
+      institution: '',
+      duration: '2025 – Present',
       type: 'Internship',
-      description: 'Developed cross-platform mobile applications using Flutter and contributed to open-source projects',
-      highlights: [
-        '📱 Built 3 complete Flutter applications with Firebase integration',
-        '🎨 Implemented responsive UI/UX designs following Material Design principles',
-        '🔧 Optimized app performance resulting in 30% faster load times',
-        '📚 Created comprehensive documentation and tutorials for the community'
+      category: 'Internship',
+      description: 'Hands-on internship involving real-world data science projects: Python, Pandas, NumPy, statistics, visualizations, and preprocessing.',
+      overview: 'Hands-on internship involving real-world data science projects: Python, Pandas, NumPy, statistics, visualizations, and preprocessing.',
+      impact: [
+        'Completed 4+ mini projects end-to-end',
+        'Collaborated on data pipelines and analytics dashboards'
       ],
-      skills: ['Flutter', 'Dart', 'Firebase', 'Mobile Development', 'Git', 'API Integration'],
-      icon: Palette,
-      color: 'from-teal-500 to-blue-500',
-      metrics: {
-        apps: '3',
-        performance: '+30%',
-        community: '1K+'
-      }
+      achievements: [
+        '📊 Automated exploratory data analysis workflows',
+        '🛠️ Built interactive dashboards using Python libraries'
+      ],
+      skills: ['Python', 'Data Analysis', 'ML', 'Visualization'],
+      technologies: ['Python', 'Pandas', 'NumPy', 'Data Visualization Libraries'],
+      icon: TrendingUp,
+      color: 'from-blue-500 to-indigo-500',
+      bgGradient: 'from-blue-50 to-indigo-50',
+      borderColor: 'border-blue-200'
     },
     {
       id: 4,
-      title: 'Technical Lead',
+      title: 'Technical Member',
       company: 'DSAIII Club',
-      location: 'SINHGAD Institute',
-      duration: 'Jan 2024 - Present',
+      institution: 'D. Y. Patil Institute of Technology (DYPIT)',
+      duration: 'Jan 2024 – Present',
       type: 'Leadership',
-      description: 'Leading technical initiatives and community building while managing development projects and workshops',
-      highlights: [
+      category: 'Experience',
+      description: 'Leading technical initiatives and community building while managing development projects and workshops.',
+      overview: 'Leading technical initiatives and community building while managing development projects and workshops.',
+      impact: [
+        '15+ technical workshops and coding bootcamps organized',
+        'Mentored 50+ students in programming and career development',
+        'Led 5+ club development projects'
+      ],
+      achievements: [
         '💻 Built responsive websites and event management systems for DSAIII Club',
         '🌍 Developed NGO management system at Byteminds for social impact initiatives',
-        '🛠️ Organized and conducted 15+ technical workshops and coding bootcamps',
-        '👥 Mentored 50+ students in programming and career development'
+        '🛠️ Coordinated and conducted hands-on technical events',
+        '👥 Fostered a supportive programming community'
       ],
       skills: ['Leadership', 'Web Development', 'Community Building', 'Project Management', 'Mentoring'],
+      technologies: ['Python', 'JavaScript', 'Web Development Tools', 'Project Management'],
       icon: Code,
       color: 'from-green-500 to-emerald-500',
-      metrics: {
-        workshops: '15+',
-        students: '50+',
-        projects: '5+'
-      }
+      bgGradient: 'from-green-50 to-emerald-50',
+      borderColor: 'border-green-200'
     },
     {
       id: 5,
-      title: 'Web Developer',
-      company: 'Freelance Projects',
-      location: 'Remote/Pune',
-      duration: 'Oct 2023 - Present',
-      type: 'Freelance',
-      description: 'Delivered custom web solutions for small businesses and startups, focusing on modern web technologies',
-      highlights: [
-        '🚀 Completed 8+ client projects with 100% satisfaction rate',
-        '💼 Developed e-commerce platforms and business websites',
-        '⚡ Improved website loading speeds by 45% on average',
-        '🎯 Increased client conversion rates by 25% through optimization'
+      title: 'Technical Member',
+      company: 'Byteminds (NGO)',
+      institution: '',
+      duration: '2024',
+      type: 'Volunteer',
+      category: 'Experience',
+      description: 'Taught coding at an NGO and contributed tech support for social awareness activities.',
+      overview: 'Taught coding at an NGO and contributed tech support for social awareness activities.',
+      impact: [
+        'Instructed 30+ underprivileged students',
+        'Provided technical solutions for 3+ awareness drives'
       ],
-      skills: ['React', 'Next.js', 'Node.js', 'WordPress', 'SEO', 'E-commerce'],
-      icon: Building,
+      achievements: [
+        '📚 Developed beginner coding curriculum',
+        '🛠️ Set up first-time tech infrastructure for events',
+        '🌱 Supported social projects with technology'
+      ],
+      skills: ['Teaching', 'Social Impact', 'Coding Outreach', 'Technical Support'],
+      technologies: ['Python', 'Scratch', 'Web Tools'],
+      icon: Heart,
       color: 'from-orange-500 to-red-500',
-      metrics: {
-        projects: '8+',
-        satisfaction: '100%',
-        conversion: '+25%'
-      }
+      bgGradient: 'from-orange-50 to-red-50',
+      borderColor: 'border-orange-200'
     }
   ];
 
+  const getTypeIcon = (type: string) => {
+    switch (type) {
+      case 'Internship': return Database;
+      case 'Leadership': return Users;
+      case 'Volunteer': return Heart;
+      default: return Briefcase;
+    }
+  };
+
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'Internship': return 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300';
-      case 'Research': return 'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300';
-      case 'Leadership': return 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300';
-      case 'Freelance': return 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300';
+      case 'Internship': return 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300';
+      case 'Leadership': return 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300';
+      case 'Volunteer': return 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300';
       default: return 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300';
     }
   };
@@ -141,214 +168,318 @@ const ExperienceSection: React.FC = () => {
     <section
       id="experience"
       ref={ref}
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-24 md:py-32 overflow-hidden bg-[var(--neuro-bg-primary)]"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full filter blur-3xl animate-pulse" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full filter blur-3xl animate-pulse delay-1000" />
+      {/* Animated Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--neuro-bg-primary)] via-[var(--neuro-bg-secondary)] to-[var(--neuro-bg-primary)]" />
       
-      <div className="container mx-auto px-6 relative z-10">
+      {/* Floating Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              x: [0, 20, 0],
+              opacity: [0.1, 0.3, 0.1],
+              scale: [0.8, 1.2, 0.8],
+            }}
+            transition={{
+              duration: 4 + Math.random() * 4,
+              repeat: Infinity,
+              delay: Math.random() * 3,
+              ease: "easeInOut",
+            }}
+          >
+            <div className="w-2 h-2 bg-[var(--neuro-accent)] rounded-full blur-sm" />
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
           variants={staggerContainer}
           initial="initial"
           animate={isInView ? "animate" : "initial"}
-          className="max-w-7xl mx-auto"
+          className="text-center mb-20"
         >
-          {/* Header */}
-          <motion.div
-            variants={staggerItem}
-            className="text-center mb-16 md:mb-20"
-          >
-            <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-purple-200 text-purple-700 font-medium mb-4 md:mb-6 neumorphism-inset text-sm md:text-base">
-              <Briefcase className="w-3 md:w-4 h-3 md:h-4" />
-              Professional Journey
+          <motion.div variants={staggerItem} className="mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full neuro-card mb-8 glow-effect">
+              <GraduationCap className="w-10 h-10 text-[var(--neuro-accent)]" />
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent px-4">
-              Experience & Growth
-            </h2>
-            <p className="text-base md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
-              From data science internships to AI research and community leadership, 
-              here's my journey of continuous learning and impact.
-            </p>
           </motion.div>
-
-          {/* Experience Selector */}
-          <motion.div
+          
+          <motion.h2 
             variants={staggerItem}
-            className="grid lg:grid-cols-12 gap-6 md:gap-8 items-start"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--neuro-text-primary)] mb-8"
           >
-            {/* Experience Cards Selector */}
-            <div className="lg:col-span-4 space-y-3 md:space-y-4">
-              {experiences.map((exp, index) => {
-                const IconComponent = exp.icon;
-                return (
-                  <motion.button
-                    key={exp.id}
-                    onClick={() => setSelectedExp(index)}
-                    className={`w-full text-left p-4 md:p-6 rounded-xl md:rounded-2xl transition-all duration-300 group hover:scale-105 ${
-                      selectedExp === index
-                        ? 'bg-white shadow-2xl ring-2 ring-purple-500 neumorphism-raised'
-                        : 'bg-white/60 backdrop-blur-sm hover:bg-white/80 neumorphism'
-                    }`}
-                    whileHover={{ y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="flex items-start gap-3 md:gap-4">
-                      <div className={`p-2 md:p-3 rounded-lg md:rounded-xl bg-gradient-to-r ${exp.color} shadow-lg group-hover:shadow-xl transition-shadow`}>
-                        <IconComponent className="w-5 md:w-6 h-5 md:h-6 text-white" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between mb-1 md:mb-2">
-                          <h3 className={`font-bold text-base md:text-lg transition-colors ${
-                            selectedExp === index ? 'text-purple-600' : 'text-gray-800 dark:text-white'
-                          }`}>
+            Professional
+            <span className="gradient-text block mt-2">Experience</span>
+          </motion.h2>
+          
+          <motion.p 
+            variants={staggerItem}
+            className="text-xl md:text-2xl text-[var(--neuro-text-secondary)] max-w-4xl mx-auto leading-relaxed"
+          >
+            A journey through leadership, innovation, and social impact. Each role has shaped my passion 
+            for creating meaningful change through technology and community building.
+          </motion.p>
+        </motion.div>
+
+        {/* Experience Cards - Modern Grid Layout */}
+        <motion.div
+          variants={staggerContainer}
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          className="grid gap-8 md:gap-12"
+        >
+          {experiences.map((exp, index) => {
+            const Icon = exp.icon;
+            const TypeIcon = getTypeIcon(exp.type);
+            const isSelected = selectedExp === index;
+            
+            return (
+              <motion.div
+                key={exp.id}
+                variants={staggerItem}
+                className="group relative"
+              >
+                {/* Main Card */}
+                <motion.div
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className={`relative neuro-card p-8 md:p-10 hover:glow-effect transition-all duration-500 border-2 ${exp.borderColor} bg-gradient-to-br ${exp.bgGradient} dark:from-gray-800 dark:to-gray-900`}
+                >
+                  {/* Background Pattern */}
+                  <div className="absolute inset-0 opacity-5 dark:opacity-10">
+                    <div className="absolute top-4 right-4 w-32 h-32 rounded-full bg-gradient-to-br from-current to-transparent" />
+                    <div className="absolute bottom-4 left-4 w-24 h-24 rounded-full bg-gradient-to-tr from-current to-transparent" />
+                  </div>
+
+                  <div className="relative z-10">
+                    {/* Header Section */}
+                    <div className="flex flex-col space-y-6 mb-6">
+                      <div className="flex items-start space-x-4">
+                        {/* Icon */}
+                        <motion.div
+                          whileHover={{ rotate: 360, scale: 1.1 }}
+                          transition={{ duration: 0.6 }}
+                          className={`w-16 h-16 lg:w-20 lg:h-20 rounded-xl lg:rounded-2xl neuro-card flex items-center justify-center bg-gradient-to-br ${exp.color} glow-effect flex-shrink-0`}
+                        >
+                          <Icon className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
+                        </motion.div>
+
+                        <div className="flex-1 min-w-0">
+                          {/* Type Badge */}
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 space-y-2 sm:space-y-0 mb-3">
+                            <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold ${getTypeColor(exp.type)} w-fit`}>
+                              <TypeIcon className="w-3 h-3 mr-2" />
+                              {exp.type}
+                            </span>
+                            <span className="text-xs sm:text-sm text-[var(--neuro-text-secondary)] flex items-center">
+                              <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                              {exp.duration}
+                            </span>
+                          </div>
+
+                          {/* Title & Company */}
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[var(--neuro-text-primary)] mb-2 leading-tight">
                             {exp.title}
                           </h3>
-                          <ChevronRight className={`w-4 md:w-5 h-4 md:h-5 transition-all duration-300 ${
-                            selectedExp === index ? 'text-purple-500 rotate-90' : 'text-gray-400'
-                          }`} />
+                          
+                          <div className="space-y-1">
+                            <div className="flex items-start text-sm sm:text-base lg:text-lg text-[var(--neuro-text-secondary)]">
+                              <Building className="w-4 h-4 lg:w-5 lg:h-5 mr-2 mt-0.5 flex-shrink-0" />
+                              <span className="font-medium leading-tight">{exp.company}</span>
+                            </div>
+                            
+                            {exp.institution && (
+                              <div className="flex items-start text-xs sm:text-sm lg:text-base text-[var(--neuro-text-secondary)]">
+                                <MapPin className="w-3 h-3 lg:w-4 lg:h-4 mr-2 mt-0.5 flex-shrink-0" />
+                                <span className="leading-tight">{exp.institution}</span>
+                              </div>
+                            )}
+                          </div>
                         </div>
-                        <p className="text-gray-600 dark:text-gray-300 font-medium mb-1">{exp.company}</p>
-                        <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-                          <Calendar className="w-4 h-4" />
-                          {exp.duration}
-                        </div>
+
+                        {/* Expand Button - Desktop */}
+                        <motion.button
+                          onClick={() => setSelectedExp(isSelected ? -1 : index)}
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="hidden lg:flex items-center justify-center w-10 h-10 neuro-button rounded-full text-[var(--neuro-text-primary)]"
+                        >
+                          <motion.div
+                            animate={{ rotate: isSelected ? 90 : 0 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <ChevronRight className="w-5 h-5" />
+                          </motion.div>
+                        </motion.button>
                       </div>
                     </div>
-                  </motion.button>
-                );
-              })}
-            </div>
 
-            {/* Selected Experience Details */}
-            <div className="lg:col-span-8">
-              <motion.div
-                key={selectedExp}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3 }}
-                className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl neumorphism-raised"
-              >
-                {(() => {
-                  const exp = experiences[selectedExp];
-                  const IconComponent = exp.icon;
-                  return (
-                    <div>
-                      {/* Header */}
-                      <div className="flex items-start justify-between mb-8">
-                        <div className="flex items-start gap-6">
-                          <div className={`p-4 rounded-2xl bg-gradient-to-r ${exp.color} shadow-xl`}>
-                            <IconComponent className="w-8 h-8 text-white" />
+                    {/* Overview */}
+                    <p className="text-base lg:text-lg text-[var(--neuro-text-secondary)] leading-relaxed mb-6">
+                      {exp.overview}
+                    </p>
+
+                    {/* Expandable Content */}
+                    <motion.div
+                      initial={false}
+                      animate={{
+                        height: isSelected ? 'auto' : 0,
+                        opacity: isSelected ? 1 : 0,
+                      }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-6 lg:pt-8 border-t-2 border-[var(--neuro-border)]">
+                        {/* Impact Section */}
+                        <div className="mb-6 lg:mb-8">
+                          <h4 className="text-lg lg:text-xl font-bold text-[var(--neuro-text-primary)] mb-3 lg:mb-4 flex items-center">
+                            <Target className="w-4 h-4 lg:w-5 lg:h-5 mr-2 lg:mr-3 text-[var(--neuro-accent)]" />
+                            Impact
+                          </h4>
+                          <ul className="space-y-2 lg:space-y-3">
+                            {exp.impact.map((item, idx) => (
+                              <motion.li
+                                key={idx}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: isSelected ? 1 : 0, x: isSelected ? 0 : -20 }}
+                                transition={{ delay: idx * 0.1 }}
+                                className="text-sm lg:text-base text-[var(--neuro-text-secondary)] flex items-start"
+                              >
+                                <Star className="w-3 h-3 lg:w-4 lg:h-4 mr-2 lg:mr-3 mt-0.5 lg:mt-1 text-[var(--neuro-accent)] flex-shrink-0" />
+                                <span className="leading-relaxed">{item}</span>
+                              </motion.li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Key Achievements */}
+                        <div className="mb-6 lg:mb-8">
+                          <h4 className="text-lg lg:text-xl font-bold text-[var(--neuro-text-primary)] mb-3 lg:mb-4 flex items-center">
+                            <Award className="w-4 h-4 lg:w-5 lg:h-5 mr-2 lg:mr-3 text-[var(--neuro-accent)]" />
+                            Key Achievements
+                          </h4>
+                          <div className="grid gap-3 lg:gap-4 sm:grid-cols-2">
+                            {exp.achievements.map((achievement, idx) => (
+                              <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: isSelected ? 1 : 0, y: isSelected ? 0 : 20 }}
+                                transition={{ delay: idx * 0.1 }}
+                                className="neuro-inset p-3 lg:p-4 rounded-lg lg:rounded-xl"
+                              >
+                                <div className="text-[var(--neuro-text-secondary)] flex items-start">
+                                  <span className="text-lg lg:text-2xl mr-2 lg:mr-3 flex-shrink-0">{achievement.split(' ')[0]}</span>
+                                  <span className="text-xs lg:text-sm leading-relaxed">{achievement.split(' ').slice(1).join(' ')}</span>
+                                </div>
+                              </motion.div>
+                            ))}
                           </div>
+                        </div>
+
+                        {/* Technologies */}
+                        <div className="grid gap-6 lg:gap-8 sm:grid-cols-2">
                           <div>
-                            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
-                              {exp.title}
-                            </h3>
-                            <div className="flex items-center gap-4 mb-3">
-                              <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-                                <Building className="w-4 h-4" />
-                                <span className="font-medium">{exp.company}</span>
-                              </div>
-                              <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-                                <MapPin className="w-4 h-4" />
-                                <span>{exp.location}</span>
-                              </div>
+                            <h4 className="text-base lg:text-lg font-bold text-[var(--neuro-text-primary)] mb-3 lg:mb-4 flex items-center">
+                              <Zap className="w-4 h-4 lg:w-5 lg:h-5 mr-2 lg:mr-3 text-[var(--neuro-accent)]" />
+                              Skills
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                              {exp.skills.map((skill, idx) => (
+                                <motion.span
+                                  key={idx}
+                                  initial={{ opacity: 0, scale: 0.8 }}
+                                  animate={{ opacity: isSelected ? 1 : 0, scale: isSelected ? 1 : 0.8 }}
+                                  transition={{ delay: idx * 0.05 }}
+                                  className="px-2.5 lg:px-3 py-1 lg:py-1.5 bg-[var(--neuro-bg-secondary)] text-[var(--neuro-text-primary)] rounded text-xs lg:text-sm font-medium border border-[var(--neuro-accent)] border-opacity-20"
+                                >
+                                  {skill}
+                                </motion.span>
+                              ))}
                             </div>
-                            <div className="flex items-center gap-3">
-                              <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
-                                <Clock className="w-4 h-4" />
-                                <span>{exp.duration}</span>
-                              </div>
-                              <span className={`px-3 py-1 rounded-full text-sm font-medium ${getTypeColor(exp.type)}`}>
-                                {exp.type}
-                              </span>
+                          </div>
+
+                          <div>
+                            <h4 className="text-base lg:text-lg font-bold text-[var(--neuro-text-primary)] mb-3 lg:mb-4 flex items-center">
+                              <Code className="w-4 h-4 lg:w-5 lg:h-5 mr-2 lg:mr-3 text-[var(--neuro-accent)]" />
+                              Technologies
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                              {exp.technologies.map((tech, idx) => (
+                                <motion.span
+                                  key={idx}
+                                  initial={{ opacity: 0, scale: 0.8 }}
+                                  animate={{ opacity: isSelected ? 1 : 0, scale: isSelected ? 1 : 0.8 }}
+                                  transition={{ delay: idx * 0.05 }}
+                                  className="px-2.5 lg:px-3 py-1 lg:py-1.5 bg-[var(--neuro-bg-secondary)] text-[var(--neuro-text-secondary)] rounded text-xs lg:text-sm font-medium border border-gray-300 dark:border-gray-600"
+                                >
+                                  {tech}
+                                </motion.span>
+                              ))}
                             </div>
                           </div>
                         </div>
                       </div>
+                    </motion.div>
 
-                      {/* Description */}
-                      <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-6 md:mb-8">
-                        {exp.description}
-                      </p>
-
-                      {/* Key Metrics */}
-                      {exp.metrics && (
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mb-6 md:mb-8">
-                          {Object.entries(exp.metrics).map(([key, value]) => (
-                            <div key={key} className="text-center p-3 md:p-4 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl neumorphism-inset">
-                              <div className="text-xl md:text-2xl font-bold text-purple-600 dark:text-purple-400">
-                                {value}
-                              </div>
-                              <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 capitalize">
-                                {key.replace(/([A-Z])/g, ' $1').trim()}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-
-                      {/* Highlights */}
-                      <div className="mb-6 md:mb-8">
-                        <h4 className="text-base md:text-lg font-semibold text-gray-800 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
-                          <Target className="w-4 h-4 md:w-5 md:h-5 text-purple-500" />
-                          Key Achievements
-                        </h4>
-                        <div className="space-y-2 md:space-y-3">
-                          {exp.highlights.map((highlight, index) => (
-                            <motion.div
-                              key={index}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: index * 0.1 }}
-                              className="flex items-start gap-2 md:gap-3 p-2 md:p-3 rounded-xl bg-gradient-to-r from-white/60 to-purple-50/60 dark:from-gray-800/60 dark:to-purple-900/20 neumorphism-inset"
-                            >
-                              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 mt-1.5 md:mt-2 flex-shrink-0" />
-                              <span className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                                {highlight}
-                              </span>
-                            </motion.div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Skills */}
-                      <div>
-                        <h4 className="text-base md:text-lg font-semibold text-gray-800 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
-                          <Award className="w-4 h-4 md:w-5 md:h-5 text-purple-500" />
-                          Technologies & Skills
-                        </h4>
-                        <div className="flex flex-wrap gap-2 md:gap-3">
-                          {exp.skills.map((skill, index) => (
-                            <motion.span
-                              key={skill}
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              transition={{ delay: index * 0.05 }}
-                              className="px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/40 dark:to-blue-900/40 text-purple-700 dark:text-purple-300 rounded-full font-medium text-sm md:text-base neumorphism-inset hover:shadow-lg transition-shadow"
-                            >
-                              {skill}
-                            </motion.span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })()}
+                    {/* Mobile Expand Button */}
+                    <motion.button
+                      onClick={() => setSelectedExp(isSelected ? -1 : index)}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="lg:hidden w-full mt-6 neuro-button py-3 px-4 text-sm font-medium text-[var(--neuro-text-primary)] flex items-center justify-center rounded-lg"
+                    >
+                      <span>{isSelected ? 'Show Less' : 'View Details'}</span>
+                      <motion.div
+                        animate={{ rotate: isSelected ? 90 : 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="ml-2"
+                      >
+                        <ChevronRight className="w-4 h-4" />
+                      </motion.div>
+                    </motion.button>
+                  </div>
+                </motion.div>
               </motion.div>
-            </div>
-          </motion.div>
+            );
+          })}
+        </motion.div>
 
-          {/* Call to Action */}
+        {/* Call to Action */}
+        <motion.div
+          variants={staggerItem}
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          className="text-center mt-20"
+        >
           <motion.div
-            variants={staggerItem}
-            className="text-center mt-16 md:mt-20"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block"
           >
-            <div className="inline-flex items-center gap-2 px-4 md:px-6 py-2.5 md:py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-medium hover:shadow-xl transition-all duration-300 group neumorphism-raised text-sm md:text-base">
-              <span>Want to collaborate?</span>
-              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
+            <a
+              href="#contact"
+              className="neuro-button px-8 py-4 text-lg font-semibold text-[var(--neuro-text-primary)] rounded-xl hover:glow-effect transition-all duration-300"
+            >
+              Let's Work Together
+              <motion.span
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="ml-2 inline-block"
+              >
+                →
+              </motion.span>
+            </a>
           </motion.div>
         </motion.div>
       </div>

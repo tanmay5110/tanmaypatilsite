@@ -151,12 +151,6 @@ const HeroSection: React.FC = () => {
                 >
                   📧 tanmaypatil5110@gmail.com
                 </motion.span>
-                <motion.span 
-                  whileHover={{ scale: 1.05, color: 'var(--neuro-accent)' }}
-                  className="transition-colors cursor-pointer"
-                >
-                  📱 +91 9175025114
-                </motion.span>
               </div>
             </motion.div>
 
@@ -196,22 +190,23 @@ const HeroSection: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1 }}
             >
-              <motion.button
+              <motion.a
                 whileHover={{ scale: 1.05, boxShadow: '0 15px 30px rgba(102, 126, 234, 0.4)' }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="neuro-button px-6 py-3 text-base font-medium text-[var(--neuro-text-primary)] glow-effect"
+                href="/r_EngineeringResumes_Template__1_ (2) (3).pdf"
+                download="Tanmay_Patil_Resume.pdf"
+                className="neuro-button px-6 py-3 text-base font-medium text-[var(--neuro-text-primary)] glow-effect inline-flex items-center justify-center text-center"
               >
-                View My Projects
-              </motion.button>
+                Download Resume
+              </motion.a>
               
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
                 className="neuro-button px-6 py-3 text-base font-medium text-[var(--neuro-text-primary)]"
               >
-                Get In Touch
+                View Experience
               </motion.button>
             </motion.div>
           </motion.div>
