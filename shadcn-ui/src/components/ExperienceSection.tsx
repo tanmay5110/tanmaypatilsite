@@ -173,9 +173,9 @@ const ExperienceSection: React.FC = () => {
       {/* Animated Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--neuro-bg-primary)] via-[var(--neuro-bg-secondary)] to-[var(--neuro-bg-primary)]" />
       
-      {/* Floating Elements */}
+      {/* Floating Elements - Reduced for Mobile Performance */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute"
@@ -184,19 +184,17 @@ const ExperienceSection: React.FC = () => {
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              y: [0, -30, 0],
-              x: [0, 20, 0],
-              opacity: [0.1, 0.3, 0.1],
-              scale: [0.8, 1.2, 0.8],
+              y: [0, -15, 0],
+              opacity: [0.1, 0.2, 0.1],
             }}
             transition={{
-              duration: 4 + Math.random() * 4,
+              duration: 3 + Math.random() * 2,
               repeat: Infinity,
-              delay: Math.random() * 3,
+              delay: Math.random() * 2,
               ease: "easeInOut",
             }}
           >
-            <div className="w-2 h-2 bg-[var(--neuro-accent)] rounded-full blur-sm" />
+            <div className="w-1 h-1 bg-[var(--neuro-accent)] rounded-full" />
           </motion.div>
         ))}
       </div>
@@ -268,9 +266,9 @@ const ExperienceSection: React.FC = () => {
                       <div className="flex items-start space-x-4">
                         {/* Icon */}
                         <motion.div
-                          whileHover={{ rotate: 360, scale: 1.1 }}
-                          transition={{ duration: 0.6 }}
-                          className={`w-16 h-16 lg:w-20 lg:h-20 rounded-xl lg:rounded-2xl neuro-card flex items-center justify-center bg-gradient-to-br ${exp.color} glow-effect flex-shrink-0`}
+                          whileHover={{ rotate: 180, scale: 1.05 }}
+                          transition={{ duration: 0.4 }}
+                          className={`w-16 h-16 lg:w-20 lg:h-20 rounded-xl lg:rounded-2xl neuro-card flex items-center justify-center bg-gradient-to-br ${exp.color} flex-shrink-0`}
                         >
                           <Icon className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
                         </motion.div>
@@ -311,13 +309,13 @@ const ExperienceSection: React.FC = () => {
                         {/* Expand Button - Desktop */}
                         <motion.button
                           onClick={() => setSelectedExp(isSelected ? -1 : index)}
-                          whileHover={{ scale: 1.1 }}
+                          whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                           className="hidden lg:flex items-center justify-center w-10 h-10 neuro-button rounded-full text-[var(--neuro-text-primary)]"
                         >
                           <motion.div
                             animate={{ rotate: isSelected ? 90 : 0 }}
-                            transition={{ duration: 0.2 }}
+                            transition={{ duration: 0.15 }}
                           >
                             <ChevronRight className="w-5 h-5" />
                           </motion.div>

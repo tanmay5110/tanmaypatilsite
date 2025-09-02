@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
       } else {
         clearInterval(timer);
       }
-    }, 50);
+    }, 75); // Slightly slower for mobile performance
 
     return () => clearInterval(timer);
   }, []);
@@ -45,16 +45,14 @@ const HeroSection: React.FC = () => {
     }
   ];
 
-  // Optimized particle positions for better visual balance
+  // Reduced particles for better mobile performance
   const particlePositions = [
-    { x: 20, y: 15, delay: 0, duration: 8 },
-    { x: 80, y: 25, delay: 1, duration: 9 },
-    { x: 15, y: 70, delay: 2, duration: 7 },
-    { x: 85, y: 80, delay: 1.5, duration: 8.5 },
-    { x: 50, y: 10, delay: 0.5, duration: 9.5 },
-    { x: 10, y: 45, delay: 2.5, duration: 8 },
-    { x: 90, y: 55, delay: 1, duration: 7.5 },
-    { x: 60, y: 90, delay: 0.8, duration: 9 }
+    { x: 20, y: 15, delay: 0, duration: 6 },
+    { x: 80, y: 25, delay: 1, duration: 7 },
+    { x: 15, y: 70, delay: 2, duration: 6 },
+    { x: 85, y: 80, delay: 1.5, duration: 7 },
+    { x: 50, y: 10, delay: 0.5, duration: 6.5 },
+    { x: 10, y: 45, delay: 2.5, duration: 6 }
   ];
 
   return (
@@ -67,15 +65,14 @@ const HeroSection: React.FC = () => {
         {particlePositions.map((particle, index) => (
           <motion.div
             key={index}
-            className="absolute w-2 h-2 bg-gradient-to-r from-[var(--neuro-accent)] to-[var(--neuro-accent-light)] rounded-full opacity-60"
+            className="absolute w-1 h-1 md:w-2 md:h-2 bg-[var(--neuro-accent)] rounded-full opacity-40"
             style={{
               left: `${particle.x}%`,
               top: `${particle.y}%`,
             }}
             animate={{
-              y: [-10, 10, -10],
-              opacity: [0.3, 0.7, 0.3],
-              scale: [0.8, 1.2, 0.8],
+              y: [-5, 5, -5],
+              opacity: [0.2, 0.4, 0.2],
             }}
             transition={{
               duration: particle.duration,

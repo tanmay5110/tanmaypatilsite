@@ -1,4 +1,4 @@
-/* Neumorphism Design System */
+/* Neumorphism Design System - Optimized for Performance & Dark Mode */
 :root {
   /* Light Theme Colors */
   --neuro-bg-primary: #f0f0f3;
@@ -12,84 +12,88 @@
   --neuro-success: #48bb78;
   --neuro-warning: #ed8936;
   --neuro-error: #f56565;
+  --neuro-border: #e2e8f0;
 }
 
 [data-theme="dark"] {
-  /* Dark Theme Colors */
-  --neuro-bg-primary: #2d3748;
-  --neuro-bg-secondary: #1a202c;
-  --neuro-shadow-light: #4a5568;
-  --neuro-shadow-dark: #1a1a1a;
+  /* Dark Theme Colors - Improved Contrast */
+  --neuro-bg-primary: #1a202c;
+  --neuro-bg-secondary: #2d3748;
+  --neuro-shadow-light: #2d3748;
+  --neuro-shadow-dark: #0f1419;
   --neuro-text-primary: #f7fafc;
-  --neuro-text-secondary: #e2e8f0;
+  --neuro-text-secondary: #cbd5e0;
   --neuro-accent: #667eea;
-  --neuro-accent-light: #764ba2;
+  --neuro-accent-light: #9baaf3;
   --neuro-success: #68d391;
   --neuro-warning: #f6ad55;
   --neuro-error: #fc8181;
+  --neuro-border: #4a5568;
 }
 
-/* Neumorphic Elements */
+/* Performance Optimized Neumorphic Elements */
 .neuro-card {
   background: var(--neuro-bg-primary);
-  border-radius: 20px;
+  border-radius: 16px;
   box-shadow: 
-    8px 8px 16px var(--neuro-shadow-dark),
-    -8px -8px 16px var(--neuro-shadow-light);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    4px 4px 12px var(--neuro-shadow-dark),
+    -4px -4px 12px var(--neuro-shadow-light);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
 }
 
 .neuro-card:hover {
+  transform: translateY(-1px);
   box-shadow: 
-    12px 12px 24px var(--neuro-shadow-dark),
-    -12px -12px 24px var(--neuro-shadow-light);
-  transform: translateY(-2px);
+    6px 6px 16px var(--neuro-shadow-dark),
+    -6px -6px 16px var(--neuro-shadow-light);
 }
 
 .neuro-inset {
   background: var(--neuro-bg-primary);
-  border-radius: 16px;
+  border-radius: 12px;
   box-shadow: 
-    inset 4px 4px 8px var(--neuro-shadow-dark),
-    inset -4px -4px 8px var(--neuro-shadow-light);
+    inset 2px 2px 6px var(--neuro-shadow-dark),
+    inset -2px -2px 6px var(--neuro-shadow-light);
 }
 
 .neuro-button {
   background: var(--neuro-bg-primary);
   border-radius: 12px;
   box-shadow: 
-    4px 4px 8px var(--neuro-shadow-dark),
-    -4px -4px 8px var(--neuro-shadow-light);
-  transition: all 0.2s ease;
+    3px 3px 8px var(--neuro-shadow-dark),
+    -3px -3px 8px var(--neuro-shadow-light);
+  transition: all 0.15s ease;
   border: none;
   cursor: pointer;
+  will-change: transform;
 }
 
 .neuro-button:hover {
+  transform: translateY(-1px);
   box-shadow: 
-    6px 6px 12px var(--neuro-shadow-dark),
-    -6px -6px 12px var(--neuro-shadow-light);
+    4px 4px 10px var(--neuro-shadow-dark),
+    -4px -4px 10px var(--neuro-shadow-light);
 }
 
 .neuro-button:active {
+  transform: translateY(0);
   box-shadow: 
     inset 2px 2px 4px var(--neuro-shadow-dark),
     inset -2px -2px 4px var(--neuro-shadow-light);
-  transform: scale(0.98);
 }
 
-/* Floating Animation */
+/* Optimized Animations */
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-10px) rotate(1deg); }
-  66% { transform: translateY(5px) rotate(-1deg); }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
 .float-animation {
-  animation: float 6s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
 }
 
-/* Gradient Text */
+/* Gradient Text - Dark Mode Compatible */
 .gradient-text {
   background: linear-gradient(135deg, var(--neuro-accent), var(--neuro-accent-light));
   -webkit-background-clip: text;
@@ -97,18 +101,18 @@
   background-clip: text;
 }
 
-/* Glow Effect */
+/* Optimized Glow Effect */
 .glow-effect {
   box-shadow: 
-    0 0 20px rgba(102, 126, 234, 0.3),
-    8px 8px 16px var(--neuro-shadow-dark),
-    -8px -8px 16px var(--neuro-shadow-light);
+    0 0 15px rgba(102, 126, 234, 0.2),
+    4px 4px 12px var(--neuro-shadow-dark),
+    -4px -4px 12px var(--neuro-shadow-light);
 }
 
-/* Progress Bar */
+/* Progress Bar - Dark Mode Optimized */
 .neuro-progress {
   background: var(--neuro-bg-secondary);
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 
     inset 2px 2px 4px var(--neuro-shadow-dark),
     inset -2px -2px 4px var(--neuro-shadow-light);
@@ -118,17 +122,48 @@
 .neuro-progress-fill {
   background: linear-gradient(90deg, var(--neuro-accent), var(--neuro-accent-light));
   height: 100%;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(102, 126, 234, 0.4);
-  transition: width 1s ease-out;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
+  transition: width 0.8s ease-out;
 }
 
-/* Smooth Transitions */
+/* Smooth Theme Transitions */
 * {
-  transition: color 0.3s ease, background-color 0.3s ease;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
-/* Reduced Motion */
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .neuro-card {
+    border-radius: 12px;
+    box-shadow: 
+      3px 3px 8px var(--neuro-shadow-dark),
+      -3px -3px 8px var(--neuro-shadow-light);
+  }
+  
+  .neuro-card:hover {
+    transform: none;
+    box-shadow: 
+      3px 3px 8px var(--neuro-shadow-dark),
+      -3px -3px 8px var(--neuro-shadow-light);
+  }
+  
+  .neuro-button {
+    border-radius: 8px;
+    box-shadow: 
+      2px 2px 6px var(--neuro-shadow-dark),
+      -2px -2px 6px var(--neuro-shadow-light);
+  }
+  
+  .glow-effect {
+    box-shadow: 
+      0 0 10px rgba(102, 126, 234, 0.15),
+      3px 3px 8px var(--neuro-shadow-dark),
+      -3px -3px 8px var(--neuro-shadow-light);
+  }
+}
+
+/* Reduced Motion for Performance */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -141,4 +176,23 @@
   .float-animation {
     animation: none;
   }
+}
+
+/* GPU Acceleration for Performance */
+.neuro-card,
+.neuro-button {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Dark Mode Specific Optimizations */
+[data-theme="dark"] .neuro-card {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .gradient-text {
+  background: linear-gradient(135deg, #667eea, #9baaf3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

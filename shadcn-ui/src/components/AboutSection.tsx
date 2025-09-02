@@ -197,12 +197,7 @@ const AboutSection: React.FC = () => {
                 My Journey
               </h4>
               <p className="text-[var(--neuro-text-secondary)] leading-relaxed mb-4 text-sm md:text-base">
-                Currently pursuing B.E. in Artificial Intelligence & Data Science at SPPU with an 8.8 CGPA. 
-                I'm passionate about creating intelligent automation solutions and cross-platform mobile applications.
-              </p>
-              <p className="text-[var(--neuro-text-secondary)] leading-relaxed text-sm md:text-base">
-                From building n8n automation agents for call centers to developing Flutter apps with AI integration, 
-                I love exploring the intersection of AI, automation, and user experience design.
+                🚀 An enthusiastic and aspiring AI/ML engineer, I'm driven by curiosity and a passion for leveraging data science, collaboration, and innovative thinking to build impactful solutions. My journey is fueled by continuous learning and a vision to use cutting-edge tech—be it crafting intelligent automation, developing cross-platform apps, or uncovering insights through data. I thrive in dynamic environments where curiosity, teamwork, and real-world application come together.
               </p>
             </motion.div>
 
@@ -212,11 +207,9 @@ const AboutSection: React.FC = () => {
                 Current Focus
               </h4>
               <p className="text-[var(--neuro-text-secondary)] leading-relaxed text-sm md:text-base">
-                🔥 Data Science Intern at <strong>Innotech Solutions Pvt Ltd</strong> (Aug 2024 - Oct 2024)<br/>
-                📚 Processed and analyzed 50,000+ data points using Python, Pandas, NumPy<br/>
-                🤖 AI Research Assistant at <strong>Zenskar Technologies</strong> (Jun 2024 - Aug 2024)<br/>
-                🎯 Full Stack Developer at <strong>DSAIII Club</strong> - Leading technical initiatives<br/>
-                🌍 Contributing to social causes through tech at Byteminds NGO
+                🌊 Currently developing an advanced research portal to help scientists explore and study oceans using deep learning, machine learning, LLMs, and AI-powered analytics.<br/>
+                �️ My work spans intelligent database management, robust data pipelines, and solving complex, real-world problems—from data wrangling to building and deploying scalable solutions.<br/>
+                🤝 I'm always learning from the vibrant data science community and turning new knowledge into innovative tools that connect research to real impact.
               </p>
             </motion.div>
 
