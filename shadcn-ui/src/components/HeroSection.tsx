@@ -233,10 +233,9 @@ const HeroSection: React.FC = () => {
               >
                 <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 neuro-card rounded-full overflow-hidden glow-effect">
                   <picture>
-                    <source srcSet="/profile.jpg" type="image/jpeg" />
+                    <source srcSet="/tanmay-photo.webp" type="image/webp" />
                     <img
-                      src="/profile.jpg"
-                      srcSet="/profile.jpg 1x, /profile.jpg 2x"
+                      src="/tanmay-photo.webp"
                       sizes="(min-width:1024px) 24rem, (min-width:768px) 20rem, 16rem"
                       alt="Tanmay Patil"
                       width={384}
