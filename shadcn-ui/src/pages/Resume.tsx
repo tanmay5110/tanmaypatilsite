@@ -2,14 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
 import siteConfig from '@/lib/siteConfig';
-import { downloadFile, isMobileDevice } from '@/lib/downloadUtils';
 
 const ResumePage: React.FC = () => {
   const handleDownload = () => {
-    downloadFile(siteConfig.resume, 'Tanmay_Patil_Resume.pdf');
+    // Open Google Drive download link in new tab
+    window.open(siteConfig.resume, '_blank', 'noopener,noreferrer');
   };
-
-  const isMobile = isMobileDevice();
 
   return (
     <main className="min-h-screen flex items-center justify-center px-4 py-16 bg-[var(--neuro-bg-secondary)]">
@@ -35,10 +33,7 @@ const ResumePage: React.FC = () => {
           </motion.button>
 
           <p className="text-sm text-[var(--neuro-text-secondary)] mt-6">
-            {isMobile 
-              ? "On mobile? The resume will open in a new tab where you can view and download it." 
-              : "Click to download the PDF file directly to your device."
-            }<br/>
+            Click to download the resume from Google Drive. It will open in a new tab.<br/>
             Having trouble? Email me at <a className="underline gradient-text" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
           </p>
         </motion.div>

@@ -8,8 +8,8 @@ export const siteConfig = {
     github: 'https://github.com/tanmay5110',
     twitter: 'https://twitter.com/tanmaypatil'
   },
-  // Resume stored locally in public directory
-  resume: '/Tanmay_Patil_Resume.pdf'
+  // Resume hosted on Google Drive
+  resume: 'https://drive.google.com/file/d/1SB9DFlM9zv54lK5zqtPFerdZuR0RzwzC/view?usp=sharing'
 };
 
 export default siteConfig;
