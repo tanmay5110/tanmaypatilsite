@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, ArrowUp, Code, Coffee } from 'lucide-react';
+import { Heart, ArrowUp, Code, Sparkles } from 'lucide-react';
+import { staggerContainer, staggerItem } from '@/lib/animations';
 
 const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -9,92 +10,85 @@ const Footer: React.FC = () => {
 
   const currentYear = new Date().getFullYear();
 
-  const inspirationalQuotes = [
-    "Code is poetry written in logic.",
-    "Dream in code, build in reality.",
-    "Every great developer was once a beginner.",
-    "Innovation distinguishes between a leader and a follower.",
-    "The best way to predict the future is to create it.",
-    "Simplicity is the ultimate sophistication.",
-    "First, solve the problem. Then, write the code."
-  ];
-
-  const randomQuote = inspirationalQuotes[Math.floor(Math.random() * inspirationalQuotes.length)];
-
   return (
-    <footer className="bg-gradient-to-b from-transparent to-gray-50/20 dark:to-gray-900/20 py-12 px-4 relative border-t border-gray-200/10 dark:border-gray-800/20">
-      <div className="max-w-4xl mx-auto text-center">
-        {/* Inspirational Quote */}
+    <footer className="relative py-8 md:py-10 bg-[var(--neuro-bg-secondary)] border-t border-[var(--neuro-border)]">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[var(--neuro-bg-primary)] to-transparent opacity-50" />
+      
+      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-8"
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: '-50px' }}
+          className="text-center"
         >
-          <blockquote className="text-xl md:text-2xl italic text-gray-600 dark:text-gray-400 font-light mb-3">
-            "{randomQuote}"
-          </blockquote>
-          <div className="w-16 h-px bg-gradient-to-r from-transparent via-purple-300 dark:via-purple-600 to-transparent mx-auto"></div>
-        </motion.div>
+          {/* Inspirational Quote - Compact */}
+          <motion.div variants={staggerItem} className="mb-6">
+            <div className="neuro-card p-4 md:p-6 max-w-xl mx-auto">
+              <motion.div
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.2 }}
+                className="relative"
+              >
+                {/* Quote marks decoration - smaller */}
+                <div className="absolute -top-2 -left-2 text-2xl md:text-3xl text-[var(--neuro-accent)] opacity-20 font-serif">
+                  "
+                </div>
+                <div className="absolute -bottom-2 -right-2 text-2xl md:text-3xl text-[var(--neuro-accent)] opacity-20 font-serif">
+                  "
+                </div>
+                
+                <blockquote className="text-sm md:text-base font-light text-[var(--neuro-text-primary)] leading-relaxed mb-3 relative z-10">
+                  The future belongs to those who learn more skills and combine them in creative ways
+                </blockquote>
+                
+                <div className="flex items-center justify-center space-x-2 text-xs text-[var(--neuro-text-secondary)]">
+                  <Sparkles className="w-3 h-3 text-[var(--neuro-accent)]" />
+                  <span className="italic">— Robert Greene</span>
+                  <Sparkles className="w-3 h-3 text-[var(--neuro-accent)]" />
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
 
-        {/* Elegant Spacing */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="space-y-4"
-        >
-          {/* Made with love section */}
-          <div className="flex items-center justify-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
-            <span className="italic">Crafted with</span>
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <Heart className="w-4 h-4 text-red-400 fill-current" />
-            </motion.div>
-            <span className="italic">passion &</span>
-            <motion.div
-              animate={{ rotate: [0, 5, -5, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <Coffee className="w-4 h-4 text-amber-500" />
-            </motion.div>
-            <span className="italic">endless curiosity</span>
-          </div>
+          {/* Footer Content - Compact */}
+          <motion.div variants={staggerItem} className="space-y-3">
+            {/* Made with love section */}
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2 text-xs md:text-sm text-[var(--neuro-text-secondary)]">
+              <span>Crafted with</span>
+              <div className="flex items-center space-x-1">
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Heart className="w-3 h-3 md:w-4 md:h-4 text-red-400 fill-current" />
+                </motion.div>
+                <span>passion & innovation</span>
+              </div>
+            </div>
 
-          {/* Copyright with style */}
-          <div className="flex items-center justify-center space-x-2 text-xs text-gray-400 dark:text-gray-500">
-            <Code className="w-3 h-3" />
-            <span className="italic">© {currentYear} • Designed & Developed by Tanmay Patil</span>
-            <Code className="w-3 h-3" />
-          </div>
+            {/* Copyright - Compact */}
+            <div className="text-xs text-[var(--neuro-text-secondary)]">
+              © {currentYear} Tanmay Patil • Building tomorrow's solutions
+            </div>
+          </motion.div>
 
-          {/* Subtle tagline */}
-          <p className="text-xs italic text-gray-400 dark:text-gray-600 mt-2">
-            Building tomorrow's solutions, one line at a time
-          </p>
-        </motion.div>
-
-        {/* Back to Top Button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-8"
-        >
-          <motion.button
-            onClick={scrollToTop}
-            whileHover={{ scale: 1.1, y: -3 }}
-            whileTap={{ scale: 0.9 }}
-            className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/30 dark:border-gray-700/30 shadow-lg hover:shadow-xl transition-all duration-300 group"
-            aria-label="Back to top"
+          {/* Back to Top Button - Smaller */}
+          <motion.div
+            variants={staggerItem}
+            className="mt-6"
           >
-            <ArrowUp className="w-4 h-4 text-gray-600 dark:text-gray-300 group-hover:text-purple-500 transition-colors" />
-          </motion.button>
+            <motion.button
+              onClick={scrollToTop}
+              whileHover={{ scale: 1.05, y: -1 }}
+              whileTap={{ scale: 0.95 }}
+              className="neuro-button w-10 h-10 rounded-full flex items-center justify-center text-[var(--neuro-text-primary)] hover:glow-effect transition-all duration-300 group"
+              aria-label="Back to top"
+            >
+              <ArrowUp className="w-4 h-4 group-hover:text-[var(--neuro-accent)] transition-colors" />
+            </motion.button>
+          </motion.div>
         </motion.div>
       </div>
     </footer>

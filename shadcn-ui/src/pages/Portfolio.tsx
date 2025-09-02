@@ -6,6 +6,7 @@ import AboutSection from '@/components/AboutSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import ExperienceSection from '@/components/ExperienceSection';
 import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
 import { pageVariants } from '@/lib/animations';
 
 const Portfolio: React.FC = () => {
@@ -25,7 +26,7 @@ const Portfolio: React.FC = () => {
         <ExperienceSection />
         <ContactSection />
       </main>
-      {/* Footer removed as requested */}
+      <Footer />
     </motion.div>
   );
 };

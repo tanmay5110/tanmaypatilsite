@@ -35,9 +35,7 @@ const ExperienceSection: React.FC = () => {
       skills: ['Event Management', 'Administration', 'Team Communication'],
       technologies: ['Event Management Tools', 'Communication Platforms'],
       icon: Users,
-      color: 'from-purple-500 to-pink-500',
-      bgGradient: 'from-purple-50 to-pink-50',
-      borderColor: 'border-purple-200'
+      color: 'from-purple-500 to-pink-500'
     },
     {
       id: 2,
@@ -61,9 +59,7 @@ const ExperienceSection: React.FC = () => {
       skills: ['Web Design', 'Team Leadership', 'Branding', 'Event Coordination'],
       technologies: ['Figma', 'HTML', 'CSS', 'JavaScript', 'Branding Tools'],
       icon: Palette,
-      color: 'from-cyan-500 to-blue-500',
-      bgGradient: 'from-cyan-50 to-blue-50',
-      borderColor: 'border-cyan-200'
+      color: 'from-cyan-500 to-blue-500'
     },
     {
       id: 3,
@@ -86,9 +82,7 @@ const ExperienceSection: React.FC = () => {
       skills: ['Python', 'Data Analysis', 'ML', 'Visualization'],
       technologies: ['Python', 'Pandas', 'NumPy', 'Data Visualization Libraries'],
       icon: TrendingUp,
-      color: 'from-blue-500 to-indigo-500',
-      bgGradient: 'from-blue-50 to-indigo-50',
-      borderColor: 'border-blue-200'
+      color: 'from-blue-500 to-indigo-500'
     },
     {
       id: 4,
@@ -114,9 +108,7 @@ const ExperienceSection: React.FC = () => {
       skills: ['Leadership', 'Web Development', 'Community Building', 'Project Management', 'Mentoring'],
       technologies: ['Python', 'JavaScript', 'Web Development Tools', 'Project Management'],
       icon: Code,
-      color: 'from-green-500 to-emerald-500',
-      bgGradient: 'from-green-50 to-emerald-50',
-      borderColor: 'border-green-200'
+      color: 'from-green-500 to-emerald-500'
     },
     {
       id: 5,
@@ -140,9 +132,7 @@ const ExperienceSection: React.FC = () => {
       skills: ['Teaching', 'Social Impact', 'Coding Outreach', 'Technical Support'],
       technologies: ['Python', 'Scratch', 'Web Tools'],
       icon: Heart,
-      color: 'from-orange-500 to-red-500',
-      bgGradient: 'from-orange-50 to-red-50',
-      borderColor: 'border-orange-200'
+      color: 'from-orange-500 to-red-500'
     }
   ];
 
@@ -157,10 +147,10 @@ const ExperienceSection: React.FC = () => {
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'Internship': return 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300';
-      case 'Leadership': return 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300';
-      case 'Volunteer': return 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300';
-      default: return 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300';
+      case 'Internship': return 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200 border border-blue-200 dark:border-blue-700';
+      case 'Leadership': return 'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200 border border-green-200 dark:border-green-700';
+      case 'Volunteer': return 'bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200 border border-orange-200 dark:border-orange-700';
+      default: return 'bg-gray-100 text-gray-800 dark:bg-gray-800/40 dark:text-gray-200 border border-gray-200 dark:border-gray-600';
     }
   };
 
@@ -252,7 +242,7 @@ const ExperienceSection: React.FC = () => {
                 <motion.div
                   whileHover={{ y: -8, scale: 1.02 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
-                  className={`relative neuro-card p-8 md:p-10 hover:glow-effect transition-all duration-500 border-2 ${exp.borderColor} bg-gradient-to-br ${exp.bgGradient} dark:from-gray-800 dark:to-gray-900`}
+                  className="relative neuro-card p-8 md:p-10 hover:glow-effect transition-all duration-500 bg-[var(--neuro-bg-primary)] dark:bg-[var(--neuro-bg-primary)]"
                 >
                   {/* Background Pattern */}
                   <div className="absolute inset-0 opacity-5 dark:opacity-10">
@@ -399,7 +389,7 @@ const ExperienceSection: React.FC = () => {
                                   initial={{ opacity: 0, scale: 0.8 }}
                                   animate={{ opacity: isSelected ? 1 : 0, scale: isSelected ? 1 : 0.8 }}
                                   transition={{ delay: idx * 0.05 }}
-                                  className="px-2.5 lg:px-3 py-1 lg:py-1.5 bg-[var(--neuro-bg-secondary)] text-[var(--neuro-text-primary)] rounded text-xs lg:text-sm font-medium border border-[var(--neuro-accent)] border-opacity-20"
+                                  className="px-2.5 lg:px-3 py-1 lg:py-1.5 bg-[var(--neuro-accent)]/10 text-[var(--neuro-accent)] rounded text-xs lg:text-sm font-medium border border-[var(--neuro-accent)]/20 dark:bg-[var(--neuro-accent)]/20 dark:border-[var(--neuro-accent)]/30"
                                 >
                                   {skill}
                                 </motion.span>
@@ -419,7 +409,7 @@ const ExperienceSection: React.FC = () => {
                                   initial={{ opacity: 0, scale: 0.8 }}
                                   animate={{ opacity: isSelected ? 1 : 0, scale: isSelected ? 1 : 0.8 }}
                                   transition={{ delay: idx * 0.05 }}
-                                  className="px-2.5 lg:px-3 py-1 lg:py-1.5 bg-[var(--neuro-bg-secondary)] text-[var(--neuro-text-secondary)] rounded text-xs lg:text-sm font-medium border border-gray-300 dark:border-gray-600"
+                                  className="px-2.5 lg:px-3 py-1 lg:py-1.5 bg-[var(--neuro-bg-secondary)] text-[var(--neuro-text-secondary)] rounded text-xs lg:text-sm font-medium border border-[var(--neuro-border)] dark:bg-[var(--neuro-bg-secondary)] dark:border-[var(--neuro-border)]"
                                 >
                                   {tech}
                                 </motion.span>
